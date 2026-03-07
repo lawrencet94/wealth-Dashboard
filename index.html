@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0a0f1e">
+<title>Wealth Dashboard</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.10.3/Recharts.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body, #root { min-height: 100vh; min-height: 100dvh; }
+  body { background: #0a0f1e; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  input, select, button { font-family: inherit; }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 2px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useCallback, useRef, useEffect, useMemo } = React;
+const { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, PieChart, Pie, Cell } = Recharts;
+
+/* ─── Storage ─── */
+const STORAGE_KEY = "wealth_dashboard_v2";
+const saveData = (data) => { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e){} };
+const loadData = () => { try { const d = localStorage.getItem(STORAGE_KEY); return d ? JSON.parse(d) : null; } catch(e){ return null; } };
+
+/* ─── Constants ─── */
+const DEFAULT_FX = { GBP: 1, EUR: 0.8517, USD: 0.7923 };
+const CURRENCY_SYMBOLS = { GBP: "£", EUR: "€", USD: "$" };
+const CURRENCIES = ["GBP", "EUR", "USD"];
+const toGBP = (value, currency, fxRates) => value * (fxRates[currency] || 1);
+
+const formatCurrency = (value, currency = "GBP") => {
+  const num = typeof value === "string" ? parseFloat(value.replace(/,/g, "")) : value;
+  if (isNaN(num)) return `${CURRENCY_SYMBOLS[currency]}0.00`;
+  return CURRENCY_SYMBOLS[currency] + num.toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+};
+const formatGBP = (v) => formatCurrency(v, "GBP");
+const parseCurrency = (str) => { const n = parseFloat(String(str).replace(/[^0-9.\-]/g, "")); return isNaN(n) ? 0 : n; };
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+
+const S = {
+  card: { background: "linear-gradient(135deg, rgba(15,23,42,0.95), rgba(20,30,52,0.9))", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 16, padding: "28px 24px", backdropFilter: "blur(20px)", boxShadow: "0 4px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.04)" },
+  label: { fontSize: 11, letterSpacing: 3, textTransform: "uppercase", color: "#8a9bb5", fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 },
+  serifNum: { fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 400, letterSpacing: -0.5 },
+  inter: { fontFamily: "'Inter', system-ui, sans-serif" }
+};
+
+/* ─── Default data factory ─── */
+const makeDefaults = () => ({
+  fxRates: { ...DEFAULT_FX },
+  cashAccounts: [
+    { id: uid(), name: "Current Account", value: 0, currency: "GBP", annualReturn: 0 },
+    { id: uid(), name: "Savings Account", value: 0, currency: "GBP", annualReturn: 1 },
+  ],
+  publicAccounts: [
+    { id: uid(), name: "Freetrade", value: 0, currency: "GBP", annualReturn: 7 },
+    { id: uid(), name: "JPMorgan ISA", value: 0, currency: "GBP", annualReturn: 7 },
+  ],
+  privateItems: [
+    { id: uid(), name: "Private Equity", value: 0, currency: "GBP", annualReturn: 12 },
+  ],
+  pensionAccounts: [
+    { id: uid(), name: "Workplace Pension", value: 0, currency: "GBP", annualReturn: 5 },
+    { id: uid(), name: "SIPP", value: 0, currency: "GBP", annualReturn: 6 },
+  ]
+});
+
+/* ─── Animated total ─── */
+function AnimatedTotal({ value, label, size = "large" }) {
+  const [display, setDisplay] = useState(value);
+  const raf = useRef(null);
+  useEffect(() => {
+    let start = display, end = value;
+    if (Math.abs(end - start) < 0.01) { setDisplay(end); return; }
+    let t0 = null;
+    const step = (ts) => { if (!t0) t0 = ts; const p = Math.min((ts - t0) / 400, 1); setDisplay(start + (end - start) * (1 - Math.pow(1 - p, 3))); if (p < 1) raf.current = requestAnimationFrame(step); };
+    raf.current = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf.current);
+  }, [value]);
+  const lg = size === "large";
+  return (
+    <div style={{ textAlign: "center" }}>
+      {label && <div style={{ ...S.label, marginBottom: lg ? 8 : 4 }}>{label}</div>}
+      <div style={{ ...S.serifNum, fontSize: lg ? 36 : 24, color: lg ? "#d4a853" : "#e8edf4", transition: "color 0.3s" }}>{formatGBP(display)}</div>
+    </div>
+  );
+}
+
+/* ─── Currency selector ─── */
+function CurrencySelector({ value, onChange }) {
+  return <select value={value} onChange={(e) => onChange(e.target.value)} style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 6, color: "#8a9bb5", fontSize: 12, padding: "6px 6px", ...S.inter, fontWeight: 500, outline: "none", cursor: "pointer", appearance: "none", textAlign: "center", width: 48, letterSpacing: 1 }}>
+    {CURRENCIES.map((c) => <option key={c} value={c} style={{ background: "#111d36" }}>{c}</option>)}
+  </select>;
+}
+
+/* ─── Editable currency field ─── */
+function CurrencyInput({ value, onChange, currency = "GBP" }) {
+  const [editing, setEditing] = useState(false);
+  const [raw, setRaw] = useState(String(value));
+  const inputRef = useRef(null);
+  useEffect(() => { if (!editing) setRaw(String(value)); }, [value, editing]);
+  const commit = () => { setEditing(false); onChange(parseCurrency(raw)); };
+  if (!editing) return <div onClick={() => { setEditing(true); setTimeout(() => inputRef.current?.select(), 10); }} style={{ padding: "8px 12px", borderRadius: 6, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#e8edf4", fontSize: 15, ...S.serifNum, cursor: "text", minWidth: 90, textAlign: "right", transition: "border-color 0.2s" }}>{formatCurrency(value, currency)}</div>;
+  return <input ref={inputRef} autoFocus value={raw} onChange={(e) => setRaw(e.target.value)} onBlur={commit} onKeyDown={(e) => { if (e.key === "Enter") { e.target.blur(); } }} inputMode="decimal" style={{ padding: "8px 12px", borderRadius: 6, background: "rgba(212,168,83,0.08)", border: "1px solid rgba(212,168,83,0.4)", color: "#e8edf4", fontSize: 15, ...S.serifNum, outline: "none", minWidth: 90, textAlign: "right", width: "100%", boxSizing: "border-box" }} />;
+}
+
+/* ─── Editable name ─── */
+function EditableName({ value, onChange }) {
+  const [editing, setEditing] = useState(false);
+  const [raw, setRaw] = useState(value);
+  const inputRef = useRef(null);
+  useEffect(() => { if (!editing) setRaw(value); }, [value, editing]);
+  const commit = () => { setEditing(false); const t = raw.trim(); if (t && t !== value) onChange(t); else setRaw(value); };
+  if (!editing) return <div onClick={() => { setEditing(true); setTimeout(() => inputRef.current?.select(), 10); }} style={{ flex: 1, fontSize: 14, color: "#c0ccdd", ...S.inter, fontWeight: 400, padding: "6px 8px", borderRadius: 6, cursor: "text", border: "1px solid transparent", transition: "border-color 0.2s", minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{value}</div>;
+  return <input ref={inputRef} autoFocus value={raw} onChange={(e) => setRaw(e.target.value)} onBlur={commit} onKeyDown={(e) => { if (e.key === "Enter") e.target.blur(); if (e.key === "Escape") { setRaw(value); setEditing(false); } }} style={{ flex: 1, padding: "6px 8px", borderRadius: 6, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(212,168,83,0.3)", color: "#e8edf4", fontSize: 14, ...S.inter, fontWeight: 400, outline: "none", boxSizing: "border-box", minWidth: 0 }} />;
+}
+
+/* ─── Editable % ─── */
+function PercentInput({ value, onChange }) {
+  const [editing, setEditing] = useState(false);
+  const [raw, setRaw] = useState(String(value));
+  const inputRef = useRef(null);
+  useEffect(() => { if (!editing) setRaw(String(value)); }, [value, editing]);
+  const commit = () => { setEditing(false); onChange(parseCurrency(raw)); };
+  if (!editing) return <div onClick={() => { setEditing(true); setTimeout(() => inputRef.current?.select(), 10); }} style={{ padding: "6px 8px", borderRadius: 6, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#8a9bb5", fontSize: 12, ...S.inter, fontWeight: 500, cursor: "text", minWidth: 44, textAlign: "center", transition: "border-color 0.2s" }}>{value}%</div>;
+  return <input ref={inputRef} autoFocus value={raw} onChange={(e) => setRaw(e.target.value)} onBlur={commit} onKeyDown={(e) => { if (e.key === "Enter") e.target.blur(); }} inputMode="decimal" style={{ padding: "6px 8px", borderRadius: 6, background: "rgba(212,168,83,0.08)", border: "1px solid rgba(212,168,83,0.4)", color: "#e8edf4", fontSize: 12, ...S.inter, fontWeight: 500, outline: "none", minWidth: 44, textAlign: "center", width: 56, boxSizing: "border-box" }} />;
+}
+
+/* ─── Account row ─── */
+function AccountRow({ account, onUpdate, onRename, onDelete, onCurrencyChange, onReturnChange, showDelete = true, showReturn = false, fxRates = DEFAULT_FX }) {
+  const [visible, setVisible] = useState(false);
+  const [removing, setRemoving] = useState(false);
+  useEffect(() => { requestAnimationFrame(() => setVisible(true)); }, []);
+  const handleDelete = () => { setRemoving(true); setTimeout(() => onDelete(account.id), 300); };
+  const gbpValue = toGBP(account.value, account.currency, fxRates);
+  const showConv = account.currency !== "GBP" && account.value > 0;
+  return (
+    <div style={{ padding: "10px 0", borderBottom: "1px solid rgba(255,255,255,0.04)", opacity: removing ? 0 : visible ? 1 : 0, transform: removing ? "translateX(20px)" : visible ? "translateX(0)" : "translateX(-10px)", transition: "opacity 0.3s, transform 0.3s", maxHeight: removing ? 0 : 120, overflow: "hidden" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
+        <EditableName value={account.name} onChange={(n) => onRename(account.id, n)} />
+        {showReturn && onReturnChange && <PercentInput value={account.annualReturn ?? 0} onChange={(v) => onReturnChange(account.id, v)} />}
+        <CurrencySelector value={account.currency} onChange={(c) => onCurrencyChange(account.id, c)} />
+        <CurrencyInput value={account.value} onChange={(v) => onUpdate(account.id, v)} currency={account.currency} />
+        {showDelete && <button onClick={handleDelete} style={{ background: "none", border: "none", color: "#5a6a80", cursor: "pointer", fontSize: 18, padding: "4px 6px", borderRadius: 4, lineHeight: 1 }}>×</button>}
+      </div>
+      {showConv && <div style={{ textAlign: "right", fontSize: 10, color: "#5a6a80", ...S.inter, paddingRight: showDelete ? 32 : 0, marginTop: 3 }}>≈ {formatGBP(gbpValue)}</div>}
+    </div>
+  );
+}
+
+/* ─── Add account ─── */
+function AddAccountInput({ onAdd, placeholder = "Account name" }) {
+  const [name, setName] = useState("");
+  const handleAdd = () => { if (name.trim()) { onAdd(name.trim()); setName(""); } };
+  return (
+    <div style={{ display: "flex", gap: 8, marginTop: 12 }}>
+      <input value={name} onChange={(e) => setName(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") handleAdd(); }} placeholder={placeholder} style={{ flex: 1, padding: "8px 12px", borderRadius: 6, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", color: "#c0ccdd", fontSize: 13, ...S.inter, outline: "none" }} />
+      <button onClick={handleAdd} disabled={!name.trim()} style={{ padding: "8px 14px", borderRadius: 6, background: name.trim() ? "rgba(212,168,83,0.15)" : "rgba(255,255,255,0.03)", border: `1px solid ${name.trim() ? "rgba(212,168,83,0.3)" : "rgba(255,255,255,0.08)"}`, color: name.trim() ? "#d4a853" : "#5a6a80", fontSize: 12, ...S.inter, fontWeight: 500, cursor: name.trim() ? "pointer" : "default", letterSpacing: 1, textTransform: "uppercase" }}>+ Add</button>
+    </div>
+  );
+}
+
+/* ─── Section card ─── */
+function SectionCard({ title, icon, subtotal, note, children }) {
+  return (
+    <div style={S.card}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, paddingBottom: 12, borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <span style={{ fontSize: 16, opacity: 0.7 }}>{icon}</span>
+          <h2 style={{ margin: 0, fontSize: 12, letterSpacing: 2, textTransform: "uppercase", color: "#8a9bb5", ...S.inter, fontWeight: 500 }}>{title}</h2>
+        </div>
+        <div style={{ textAlign: "right" }}>
+          <div style={{ fontSize: 18, ...S.serifNum, color: "#d4a853" }}>{formatGBP(subtotal)}</div>
+          {note && <div style={{ fontSize: 9, color: "#5a6a80", ...S.inter, marginTop: 1 }}>{note}</div>}
+        </div>
+      </div>
+      {children}
+    </div>
+  );
+}
+
+function GoldDivider() { return <div style={{ height: 1, margin: "8px 0", background: "linear-gradient(90deg, transparent, rgba(212,168,83,0.2), transparent)" }} />; }
+
+function TabButton({ active, label, onClick }) {
+  return <button onClick={onClick} style={{ padding: "10px 24px", borderRadius: 8, background: active ? "rgba(212,168,83,0.12)" : "transparent", border: `1px solid ${active ? "rgba(212,168,83,0.3)" : "rgba(255,255,255,0.06)"}`, color: active ? "#d4a853" : "#5a6a80", fontSize: 12, ...S.inter, fontWeight: 500, letterSpacing: 1.5, textTransform: "uppercase", cursor: "pointer", transition: "all 0.25s" }}>{label}</button>;
+}
+
+/* ─── Editable FX rate ─── */
+function FXRateInput({ label, value, onChange }) {
+  const [editing, setEditing] = useState(false);
+  const [raw, setRaw] = useState(String(value));
+  const inputRef = useRef(null);
+  useEffect(() => { if (!editing) setRaw(String(value)); }, [value, editing]);
+  const commit = () => { setEditing(false); const num = parseFloat(raw); if (!isNaN(num) && num > 0) onChange(num); else setRaw(String(value)); };
+  return (
+    <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
+      <span style={{ color: "#5a6a80" }}>{label}</span>
+      {editing ? <input ref={inputRef} autoFocus value={raw} onChange={(e) => setRaw(e.target.value)} onBlur={commit} onKeyDown={(e) => { if (e.key === "Enter") e.target.blur(); if (e.key === "Escape") { setRaw(String(value)); setEditing(false); } }} inputMode="decimal" style={{ width: 58, padding: "2px 6px", borderRadius: 4, background: "rgba(212,168,83,0.1)", border: "1px solid rgba(212,168,83,0.4)", color: "#d4a853", fontSize: 11, ...S.inter, fontWeight: 600, outline: "none", textAlign: "center" }} />
+      : <span onClick={() => { setEditing(true); setTimeout(() => inputRef.current?.select(), 10); }} style={{ color: "#8a9bb5", cursor: "text", padding: "2px 6px", borderRadius: 4, border: "1px solid transparent" }}>{value.toFixed(4)}</span>}
+    </span>
+  );
+}
+
+function FXRateBar({ fxRates, onUpdateRate }) {
+  return (
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 16, padding: "8px 0", fontSize: 10, ...S.inter, fontWeight: 500, letterSpacing: 1, flexWrap: "wrap" }}>
+      <FXRateInput label="EUR/GBP" value={fxRates.EUR} onChange={(v) => onUpdateRate("EUR", v)} />
+      <span style={{ color: "rgba(255,255,255,0.1)" }}>|</span>
+      <FXRateInput label="USD/GBP" value={fxRates.USD} onChange={(v) => onUpdateRate("USD", v)} />
+      <span style={{ color: "rgba(255,255,255,0.1)" }}>|</span>
+      <span style={{ color: "#4a5568", fontStyle: "italic", fontSize: 9 }}>tap to edit</span>
+    </div>
+  );
+}
+
+/* ─── Pie chart ─── */
+const PIE_COLORS = ["#d4a853", "#6ba3d6", "#8bc6a0", "#b098d6"];
+
+function AllocationPieChart({ data }) {
+  const [activeIndex, setActiveIndex] = useState(null);
+  const total = data.reduce((s, d) => s + d.value, 0);
+  if (total === 0) return (
+    <div style={{ ...S.card, textAlign: "center" }}>
+      <div style={{ ...S.label, marginBottom: 8 }}>Asset Allocation</div>
+      <div style={{ fontSize: 12, color: "#5a6a80", ...S.inter }}>Enter values below to see your allocation</div>
+    </div>
+  );
+  return (
+    <div style={{ ...S.card }}>
+      <div style={{ ...S.label, marginBottom: 12, textAlign: "center" }}>Asset Allocation</div>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 24, flexWrap: "wrap" }}>
+        <div style={{ width: 180, height: 180, flexShrink: 0 }}>
+          <ResponsiveContainer>
+            <PieChart>
+              <Pie data={data} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={50} outerRadius={75} paddingAngle={2} strokeWidth={0} onMouseEnter={(_, i) => setActiveIndex(i)} onMouseLeave={() => setActiveIndex(null)}>
+                {data.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} opacity={activeIndex === null || activeIndex === i ? 1 : 0.4} style={{ transition: "opacity 0.2s", cursor: "pointer" }} />)}
+              </Pie>
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 8, minWidth: 160 }}>
+          {data.map((d, i) => (
+            <div key={d.name} style={{ display: "flex", alignItems: "center", gap: 8, opacity: activeIndex === null || activeIndex === i ? 1 : 0.5, transition: "opacity 0.2s" }} onMouseEnter={() => setActiveIndex(i)} onMouseLeave={() => setActiveIndex(null)}>
+              <span style={{ width: 8, height: 8, borderRadius: 3, background: PIE_COLORS[i % PIE_COLORS.length], flexShrink: 0 }} />
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: 11, color: "#c0ccdd", ...S.inter, fontWeight: 500 }}>{d.name}</div>
+                <div style={{ fontSize: 10, color: "#5a6a80", ...S.inter }}>{((d.value / total) * 100).toFixed(1)}%</div>
+              </div>
+              <div style={{ ...S.serifNum, fontSize: 13, color: "#e8edf4" }}>{formatGBP(d.value)}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Forecast tooltip ─── */
+function CustomTooltip({ active, payload, label }) {
+  if (!active || !payload?.length) return null;
+  return (
+    <div style={{ ...S.card, padding: "10px 14px", borderRadius: 10, minWidth: 140, background: "rgba(15,23,42,0.97)", border: "1px solid rgba(212,168,83,0.2)" }}>
+      <div style={{ ...S.label, fontSize: 9, marginBottom: 6 }}>Year {label}</div>
+      {payload.map((p) => <div key={p.dataKey} style={{ display: "flex", justifyContent: "space-between", gap: 12, marginBottom: 2 }}><span style={{ fontSize: 11, color: p.color, ...S.inter }}>{p.name}</span><span style={{ fontSize: 11, ...S.serifNum, color: "#e8edf4" }}>{formatGBP(p.value)}</span></div>)}
+    </div>
+  );
+}
+
+/* ─── Forecast Tab ─── */
+const CHART_COLORS = ["#d4a853", "#6ba3d6", "#8bc6a0", "#c6809a", "#b098d6", "#d6a870", "#7cc8c8", "#d68f6b"];
+
+function ForecastTab({ cashAccounts, publicAccounts, privateItems, pensionAccounts, fxRates }) {
+  const [years, setYears] = useState(10);
+  const allAccounts = useMemo(() => [
+    ...cashAccounts.map((a) => ({ ...a, section: "Cash" })),
+    ...publicAccounts.map((a) => ({ ...a, section: "Public" })),
+    ...privateItems.map((a) => ({ ...a, section: "Private" })),
+    ...pensionAccounts.map((a) => ({ ...a, section: "Pension" })),
+  ], [cashAccounts, publicAccounts, privateItems, pensionAccounts]);
+
+  const chartData = useMemo(() => {
+    const data = [];
+    for (let y = 0; y <= years; y++) {
+      const row = { year: y }; let total = 0;
+      allAccounts.forEach((acc) => {
+        const gbpNow = toGBP(acc.value, acc.currency, fxRates);
+        const projected = gbpNow * Math.pow(1 + (acc.annualReturn ?? 0) / 100, y);
+        row[acc.id] = Math.round(projected * 100) / 100; total += projected;
+      });
+      row.total = Math.round(total * 100) / 100; data.push(row);
+    }
+    return data;
+  }, [allAccounts, years, fxRates]);
+
+  const finalTotal = chartData[chartData.length - 1]?.total ?? 0;
+  const startTotal = chartData[0]?.total ?? 0;
+  const growth = startTotal > 0 ? ((finalTotal / startTotal - 1) * 100).toFixed(1) : "0.0";
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+      <div style={S.card}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 16 }}>
+          <div>
+            <div style={{ ...S.label, marginBottom: 6, fontSize: 10 }}>Projected — Year {years}</div>
+            <div style={{ ...S.serifNum, fontSize: 30, color: "#d4a853" }}>{formatGBP(finalTotal)}</div>
+            <div style={{ ...S.inter, fontSize: 12, color: growth >= 0 ? "#8bc6a0" : "#c0392b", marginTop: 3 }}>{growth >= 0 ? "+" : ""}{growth}% growth</div>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            {[5, 10, 20, 30].map((n) => <button key={n} onClick={() => setYears(n)} style={{ padding: "6px 12px", borderRadius: 6, background: years === n ? "rgba(212,168,83,0.15)" : "rgba(255,255,255,0.03)", border: `1px solid ${years === n ? "rgba(212,168,83,0.3)" : "rgba(255,255,255,0.08)"}`, color: years === n ? "#d4a853" : "#5a6a80", fontSize: 11, ...S.inter, fontWeight: 600, cursor: "pointer" }}>{n}y</button>)}
+          </div>
+        </div>
+      </div>
+      <div style={S.card}>
+        <div style={{ ...S.label, marginBottom: 12, fontSize: 10 }}>Growth Projection</div>
+        <div style={{ width: "100%", height: 280 }}>
+          <ResponsiveContainer>
+            <LineChart data={chartData} margin={{ top: 5, right: 5, left: 5, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
+              <XAxis dataKey="year" tick={{ fill: "#5a6a80", fontSize: 10 }} axisLine={{ stroke: "rgba(255,255,255,0.06)" }} tickLine={false} />
+              <YAxis tick={{ fill: "#5a6a80", fontSize: 10 }} axisLine={{ stroke: "rgba(255,255,255,0.06)" }} tickLine={false} tickFormatter={(v) => v >= 1000000 ? `£${(v/1000000).toFixed(1)}M` : v >= 1000 ? `£${(v/1000).toFixed(0)}k` : `£${v}`} width={55} />
+              <Tooltip content={<CustomTooltip />} />
+              <Line type="monotone" dataKey="total" name="Total" stroke="#d4a853" strokeWidth={2.5} dot={false} />
+              {allAccounts.map((acc, i) => <Line key={acc.id} type="monotone" dataKey={acc.id} name={acc.name} stroke={CHART_COLORS[(i+1)%CHART_COLORS.length]} strokeWidth={1.2} strokeDasharray="4 3" dot={false} />)}
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+      <div style={S.card}>
+        <div style={{ ...S.label, marginBottom: 12, fontSize: 10 }}>Return Assumptions</div>
+        {allAccounts.map((acc, i) => {
+          const gbpNow = toGBP(acc.value, acc.currency, fxRates);
+          const projected = gbpNow * Math.pow(1 + (acc.annualReturn ?? 0) / 100, years);
+          return (
+            <div key={acc.id} style={{ display: "flex", alignItems: "center", gap: 8, padding: "6px 0", borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
+              <span style={{ width: 6, height: 6, borderRadius: 3, background: CHART_COLORS[(i+1)%CHART_COLORS.length], flexShrink: 0 }} />
+              <div style={{ flex: 1, fontSize: 12, color: "#c0ccdd", ...S.inter, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{acc.name} <span style={{ color: "#4a5568", fontSize: 10 }}>({acc.section})</span></div>
+              <div style={{ ...S.inter, fontSize: 11, color: "#8a9bb5", minWidth: 32, textAlign: "center" }}>{acc.annualReturn ?? 0}%</div>
+              <div style={{ ...S.serifNum, fontSize: 12, color: "#e8edf4", minWidth: 80, textAlign: "right" }}>{formatGBP(projected)}</div>
+            </div>
+          );
+        })}
+        <div style={{ marginTop: 10, fontSize: 10, color: "#4a5568", ...S.inter, fontStyle: "italic" }}>Set return rates on the Portfolio tab</div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Main App ─── */
+function App() {
+  const saved = useRef(loadData());
+  const defaults = useRef(saved.current || makeDefaults());
+
+  const [tab, setTab] = useState("portfolio");
+  const [fxRates, setFxRates] = useState(defaults.current.fxRates);
+  const [cashAccounts, setCashAccounts] = useState(defaults.current.cashAccounts);
+  const [publicAccounts, setPublicAccounts] = useState(defaults.current.publicAccounts);
+  const [privateItems, setPrivateItems] = useState(defaults.current.privateItems);
+  const [pensionAccounts, setPensionAccounts] = useState(defaults.current.pensionAccounts);
+
+  /* Auto-save on every change */
+  useEffect(() => {
+    saveData({ fxRates, cashAccounts, publicAccounts, privateItems, pensionAccounts });
+  }, [fxRates, cashAccounts, publicAccounts, privateItems, pensionAccounts]);
+
+  const updateFxRate = useCallback((currency, rate) => { setFxRates((prev) => ({ ...prev, [currency]: rate })); }, []);
+
+  const sumGBP = (arr) => arr.reduce((s, a) => s + toGBP(a.value, a.currency, fxRates), 0);
+  const cashTotal = sumGBP(cashAccounts);
+  const publicTotal = sumGBP(publicAccounts);
+  const privateTotal = sumGBP(privateItems);
+  const pensionTotal = sumGBP(pensionAccounts);
+  const grandTotal = cashTotal + publicTotal + privateTotal + pensionTotal;
+
+  const updateField = useCallback((setter, field) => (id, val) => { setter((prev) => prev.map((a) => a.id === id ? { ...a, [field]: val } : a)); }, []);
+  const updateValue = useCallback((setter) => updateField(setter, "value"), [updateField]);
+  const renameFn = useCallback((setter) => updateField(setter, "name"), [updateField]);
+  const currencyFn = useCallback((setter) => updateField(setter, "currency"), [updateField]);
+  const returnFn = useCallback((setter) => updateField(setter, "annualReturn"), [updateField]);
+  const deleteFn = useCallback((setter) => (id) => { setter((prev) => prev.filter((a) => a.id !== id)); }, []);
+  const addFn = useCallback((setter) => (name) => { setter((prev) => [...prev, { id: uid(), name, value: 0, currency: "GBP", annualReturn: 0 }]); }, []);
+
+  const showReturn = tab === "portfolio";
+
+  const renderSection = (title, icon, accounts, setter, options = {}) => (
+    <SectionCard title={title} icon={icon} subtotal={sumGBP(accounts)} note={accounts.some((a) => a.currency !== "GBP") ? "converted to GBP" : undefined}>
+      {accounts.map((acc) => <AccountRow key={acc.id} account={acc} onUpdate={updateValue(setter)} onRename={renameFn(setter)} onDelete={deleteFn(setter)} onCurrencyChange={currencyFn(setter)} onReturnChange={returnFn(setter)} showDelete={options.minOne ? accounts.length > 1 : true} showReturn={showReturn} fxRates={fxRates} />)}
+      <AddAccountInput onAdd={addFn(setter)} placeholder={options.placeholder || "New account"} />
+    </SectionCard>
+  );
+
+  return (
+    <div style={{ minHeight: "100vh", minHeight: "100dvh", background: "linear-gradient(170deg, #0a0f1e 0%, #0d1527 40%, #111d36 100%)", color: "#e8edf4", ...S.inter, paddingBottom: "env(safe-area-inset-bottom)" }}>
+      <header style={{ padding: "max(env(safe-area-inset-top), 20px) 24px 16px", textAlign: "center", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+        <div style={{ fontSize: 10, letterSpacing: 4, textTransform: "uppercase", color: "#5a6a80", marginBottom: 4, fontWeight: 500 }}>Wealth Overview</div>
+        <h1 style={{ margin: 0, fontSize: 17, fontWeight: 300, color: "#8a9bb5", letterSpacing: 1, ...S.inter }}>Personal Finance Dashboard</h1>
+      </header>
+
+      <div style={{ padding: "28px 24px 8px", background: "linear-gradient(180deg, rgba(212,168,83,0.03) 0%, transparent 100%)" }}>
+        <AnimatedTotal value={grandTotal} label="Total Net Worth" size="large" />
+        <GoldDivider />
+        <div style={{ display: "flex", justifyContent: "center", gap: 20, marginTop: 12, flexWrap: "wrap" }}>
+          {[{ label: "Cash", value: cashTotal }, { label: "Public", value: publicTotal }, { label: "Private", value: privateTotal }, { label: "Pension", value: pensionTotal }].map((item) => (
+            <div key={item.label} style={{ textAlign: "center", padding: "4px 0" }}>
+              <div style={{ fontSize: 9, letterSpacing: 2, textTransform: "uppercase", color: "#5a6a80", marginBottom: 3, fontWeight: 500 }}>{item.label}</div>
+              <div style={{ fontSize: 14, ...S.serifNum, color: "#c0ccdd" }}>{formatGBP(item.value)}</div>
+            </div>
+          ))}
+        </div>
+        <FXRateBar fxRates={fxRates} onUpdateRate={updateFxRate} />
+      </div>
+
+      <div style={{ display: "flex", justifyContent: "center", gap: 10, padding: "16px 24px 20px" }}>
+        <TabButton active={tab === "portfolio"} label="Portfolio" onClick={() => setTab("portfolio")} />
+        <TabButton active={tab === "forecast"} label="Forecast" onClick={() => setTab("forecast")} />
+      </div>
+
+      <div style={{ maxWidth: 720, margin: "0 auto", padding: "0 16px 40px", display: "flex", flexDirection: "column", gap: 20 }}>
+        {tab === "portfolio" ? (
+          <>
+            <AllocationPieChart data={[{ name: "Cash", value: cashTotal }, { name: "Public Markets", value: publicTotal }, { name: "Private Markets", value: privateTotal }, { name: "Pension", value: pensionTotal }].filter((d) => d.value > 0)} />
+            {renderSection("Cash & Bank Accounts", "◆", cashAccounts, setCashAccounts, { placeholder: "New bank account" })}
+            {renderSection("Public Market Investments", "◇", publicAccounts, setPublicAccounts, { placeholder: "New investment account" })}
+            {renderSection("Private Market Investments", "▪", privateItems, setPrivateItems, { placeholder: "New fund or holding", minOne: true })}
+            {renderSection("Pension", "⬡", pensionAccounts, setPensionAccounts, { placeholder: "New pension account" })}
+            <div style={{ background: "linear-gradient(135deg, rgba(212,168,83,0.06), rgba(212,168,83,0.02))", border: "1px solid rgba(212,168,83,0.15)", borderRadius: 16, padding: "20px 24px", textAlign: "center" }}>
+              <AnimatedTotal value={grandTotal} label="Net Worth" size="small" />
+            </div>
+          </>
+        ) : (
+          <ForecastTab cashAccounts={cashAccounts} publicAccounts={publicAccounts} privateItems={privateItems} pensionAccounts={pensionAccounts} fxRates={fxRates} />
+        )}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

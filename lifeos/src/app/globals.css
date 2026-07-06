@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --surface: #fcfcfb;
+  --plane: #f9f9f7;
+  --ink: #0b0b0b;
+  --ink-secondary: #52514e;
+  --ink-muted: #898781;
+  --hairline: #e1e0d9;
+  --series: #2a78d6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: #1a1a19;
+    --plane: #0d0d0d;
+    --ink: #ffffff;
+    --ink-secondary: #c3c2b7;
+    --ink-muted: #898781;
+    --hairline: #2c2c2a;
+    --series: #3987e5;
+  }
+}
+
+body {
+  background: var(--plane);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border p-4;
+    background: var(--surface);
+    border-color: var(--hairline);
+  }
+  .section-title {
+    @apply text-xs font-semibold uppercase tracking-wider;
+    color: var(--ink-muted);
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-1 rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors;
+    border-color: var(--hairline);
+    color: var(--ink-secondary);
+  }
+  .btn:hover {
+    background: var(--plane);
+  }
+  .btn-primary {
+    @apply btn border-transparent text-white;
+    background: var(--series);
+  }
+  .btn-primary:hover {
+    filter: brightness(1.08);
+    background: var(--series);
+  }
+  .input {
+    @apply w-full rounded-lg border px-3 py-2 text-sm outline-none;
+    background: var(--surface);
+    border-color: var(--hairline);
+    color: var(--ink);
+  }
+  .input:focus {
+    border-color: var(--series);
+  }
+}

@@ -1,51 +1,51 @@
-# Money Autopsy — Episode 1 Production Script
+# Money Stories — Episode 1 Production Script
 
-## CASE FILE #001: "The Janitor Who Died With $8 Million"
+## FILE #001: "The $8 Million Janitor"
 
 **Runtime target:** 10:30–11:00 · **VO word count:** ~1,650 (≈150 wpm)
-**Narrator:** The Auditor (ElevenLabs locked voice — measured, dry, unhurried)
-**Visual system:** noir records room, amber lamplight on navy (#0a0f1e), paper evidence,
+**Narrator:** The Archivist (ElevenLabs locked voice — measured, warm, unhurried)
+**Visual system:** archive room, amber lamplight on navy (#0a0f1e), paper evidence,
 DM Serif Display for on-screen verdicts
 
 ### Packaging
 
-- **Title (primary):** He Pumped Gas For 25 Years. He Died With $8,000,000.
-- **Title (alts):** The Janitor Who Secretly Died Rich | The $8 Million Janitor: A Money Autopsy
+- **Title (primary):** He Pumped Gas For 25 Years. He Left Behind $8,000,000.
+- **Title (alts):** The Janitor Who Was Secretly a Millionaire | The $8 Million Janitor: A Money Story
 - **Thumbnail:** amber-lit portrait of an old man's silhouette beside a battered Toyota;
-  verdict text: **"HE DIED RICH."**
-- **Chapters:** 0:00 The Case · 0:32 The Life · 3:05 The Evidence · 7:20 The Verdict · 9:10 The Ledger
-- **Description hook:** In June 2014, a 92-year-old Vermont janitor died and left $6 million
-  to a hospital and a library that had no idea he was rich. This is the autopsy.
-- **Tags:** ronald read, compound interest, dividend investing, frugal millionaire, personal finance, money autopsy
+  hook text: **"SECRETLY RICH."**
+- **Chapters:** 0:00 The Story · 0:32 The Life · 3:05 The Evidence · 7:20 The Verdict · 9:10 The Ledger
+- **Description hook:** In June 2014, a 92-year-old Vermont janitor passed away and left
+  $6 million to a hospital and a library that had no idea he was rich. This is his story.
+- **Tags:** ronald read, compound interest, dividend investing, frugal millionaire, personal finance, money stories
 - **Compliance:** altered-content disclosure ON (AI-generated reenactment visuals); description
   carries sources + "education, not financial advice" disclaimer; all figures per CNBC, NBC News,
   Wikipedia (sources at bottom of this file).
 
 ---
 
-## COLD OPEN — "The Case" (0:00–0:32)
+## COLD OPEN — "The Story" (0:00–0:32)
 
-**[VISUAL: Black. A desk lamp clicks on over a manila folder stamped CASE #001. Rain against
-a window. The Auditor's gloved hand slides a photograph out of the folder: a gas station,
+**[VISUAL: Black. A desk lamp clicks on over a manila folder stamped FILE #001. Rain against
+a window. The Archivist's hand slides a photograph out of the folder: a gas station,
 1960s, Vermont.]**
 **[SFX: lamp click, paper slide. Music: low, patient piano pulse.]**
 
-> **VO:** On June 2nd, 2014, a ninety-two-year-old man died in Brattleboro, Vermont. He pumped
-> gas for twenty-five years. He swept floors at JCPenney for seventeen more. His coat was held
-> together with safety pins, and at least one stranger, seeing him nurse a coffee, quietly paid
-> his tab — assuming he couldn't.
+> **VO:** In June 2014, a ninety-two-year-old man passed away in Brattleboro, Vermont. He had
+> pumped gas for twenty-five years. He swept floors at JCPenney for seventeen more. His coat
+> was held together with safety pins, and at least one stranger, seeing him nurse a coffee,
+> quietly paid his tab — assuming he couldn't.
 >
 > Then his will was read. Eight million dollars.
 >
-> Nobody — not his town, not his friends — saw it coming. This is the autopsy.
+> Nobody — not his town, not his friends — saw it coming. This is his story.
 
-**[VISUAL: Title card slams: MONEY AUTOPSY — CASE #001: THE JANITOR. Ledger-stamp SFX.]**
+**[VISUAL: Title card: MONEY STORIES — FILE #001: THE JANITOR. Ledger-stamp SFX.]**
 
 ---
 
 ## ACT 1 — "The Life" (0:32–3:05)
 
-**[VISUAL: Soul ID Auditor walking the records room, pulling a drawer labeled READ, RONALD J.
+**[VISUAL: Soul ID Archivist walking the archive room, pulling a drawer labeled READ, RONALD J.
 Cut to AI period reenactments: a Vermont farm in the 1930s; a boy walking a dirt road.]**
 
 > **VO:** Ronald James Read. Born October 1921, on a farm outside Brattleboro. The family had
@@ -58,12 +58,12 @@ in time-lapse behind the same pumps.]**
 
 > **VO:** For about twenty-five years he worked at a gas station — pumping gas, fixing cars.
 > Attendant and mechanic. It is difficult to pick a profession further from Wall Street.
-> He married Barbara, a widow with two children, in 1960. She passed in 1970, and Ronald
-> kept working. When he finally left the station, he didn't retire. He took a part-time job
-> as a janitor at the local JCPenney — and held it for seventeen years, until 1997.
-> He was seventy-six when he stopped.
+> He married Barbara, a widow with two children, in 1960. She passed away in 1970, and
+> Ronald kept working. When he finally left the station, he didn't retire. He took a
+> part-time job as a janitor at the local JCPenney — and held it for seventeen years,
+> until 1997. He was seventy-six when he stopped.
 
-**[VISUAL: the famous details, shot like evidence photography — numbered tags on each item:
+**[VISUAL: the famous details, shot like archive photography — numbered tags on each item:
 a coat with safety pins; a second-hand Toyota Yaris; a parking meter, coins passing it by;
 a diner coffee cup.]**
 
@@ -72,19 +72,19 @@ a diner coffee cup.]**
 > town rather than feed a meter. He cut his own firewood into his nineties. His breakfast
 > was coffee and an English muffin with peanut butter at the local diner.
 >
-> And here is what makes this case worth opening: everyone believed the visible facts.
+> And here is what makes this story worth telling: everyone believed the visible facts.
 > Everyone filed Ronald Read under *poor*. The filing error lasted ninety-two years.
 
 **[VISUAL: hard cut — a lawyer's office, a will on the desk. The number $8,000,000 types
 itself across the screen, one digit at a time.]**
 
 > **VO:** When the estate was settled, Ronald Read was worth roughly eight million dollars.
-> He left the bulk of it away from himself even in death: one-point-two million to the
-> Brooks Memorial Library. Four-point-eight million to Brattleboro Memorial Hospital.
-> The largest gifts either institution had ever received — from a man whose coat they'd
-> have taken up a collection to replace.
+> And he gave nearly all of it away: one-point-two million to the Brooks Memorial Library.
+> Four-point-eight million to Brattleboro Memorial Hospital. The largest gifts either
+> institution had ever received — from a man whose coat they'd have taken up a collection
+> to replace.
 >
-> So. Cause of wealth: unknown. Let's open him up.
+> So how does a janitor quietly build eight million dollars? Let's open the file.
 
 ---
 
@@ -103,8 +103,8 @@ The space between them glows amber and is stamped: THE GAP.]**
 > unremarkable. What was remarkable was what *didn't leave*. Friends who knew his habits
 > estimated he was saving on the order of eighty percent of what he made.
 >
-> Understand what that means forensically: wealth is not a number on a paycheck. It's the
-> distance between two numbers — what comes in, and what goes out. Most people, when income
+> Understand what that means: wealth is not a number on a paycheck. It's the distance
+> between two numbers — what comes in, and what goes out. Most people, when income
 > rises, close that gap from the spending side. Read treated the gap itself as the asset.
 > The safety pins weren't poverty. They were policy.
 
@@ -113,10 +113,10 @@ The space between them glows amber and is stamped: THE GAP.]**
 ### Exhibit B — The Machine (4:25–6:00)
 
 **[VISUAL: a bank vault. A safe-deposit box slides open — inside, a five-inch stack of paper
-stock certificates. The camera crawls the names like case evidence.]**
+stock certificates. The camera crawls the names like archive evidence.]**
 
-> **VO:** Exhibit B. The machine. When Ronald Read died, his safe-deposit box held a stack of
-> stock certificates five inches thick. At least ninety-five companies. Not lottery tickets —
+> **VO:** Exhibit B. The machine. Ronald Read's safe-deposit box held a stack of stock
+> certificates five inches thick. At least ninety-five companies. Not lottery tickets —
 > the most boring names American capitalism has ever printed: Procter & Gamble.
 > Colgate-Palmolive. Johnson & Johnson. American Express. Wells Fargo. J.M. Smucker.
 > Railroads, banks, utilities, consumer staples. Companies he could understand from a
@@ -129,13 +129,13 @@ stock certificates. The camera crawls the names like case evidence.]**
 **[VISUAL: one certificate in the stack catches fire and curls to ash — LEHMAN BROTHERS.
 The other 94 don't move.]**
 
-> **VO:** And before you object that markets are dangerous — the autopsy found scar tissue.
+> **VO:** And before you object that markets are dangerous — the file shows scar tissue.
 > One of his holdings was Lehman Brothers. In 2008 it went to zero. Total loss.
 > It didn't matter. One certificate burned; ninety-four kept paying. That is what
 > diversification is actually *for* — not to avoid mistakes, but to make every mistake
 > survivable.
 
-**[ON-SCREEN: "95 boring stocks. 1 went to zero. He died rich anyway."]**
+**[ON-SCREEN: "95 boring stocks. 1 went to zero. He was rich all along."]**
 
 ### Exhibit C — The Clock (6:00–7:20)
 
@@ -164,23 +164,23 @@ across decades — flat, flat, flat, then vertical. Year markers tick past: 1950
 
 ## ACT 3 — "The Verdict" (7:20–9:10)
 
-**[VISUAL: The Auditor closes the folder, stamps the cover. Slow push-in on the desk.]**
+**[VISUAL: The Archivist closes the folder, stamps the cover. Slow push-in on the desk.]**
 
-> **VO:** Cause of wealth — determined. Ronald Read did not beat the market. He didn't time
-> anything, predict anything, or found anything. He ran a wide gap between earning and
-> spending, fed it into ninety-five boring dividend machines, and refused to touch the
-> clock for six and a half decades. Any one of those alone is unremarkable.
-> Compounded together, they were worth eight million dollars.
+> **VO:** So there it is. Ronald Read did not beat the market. He didn't time anything,
+> predict anything, or found anything. He ran a wide gap between earning and spending,
+> fed it into ninety-five boring dividend machines, and refused to touch the clock for
+> six and a half decades. Any one of those alone is unremarkable. Compounded together,
+> they were worth eight million dollars.
 >
-> But note the counter-finding, because an honest autopsy records it: Read may have run the
-> gap *too* wide. He died with safety pins in his coat and eight million in the vault —
-> money can be over-saved as well as over-spent, and we'll open that case another day.
+> But note the counter-finding, because an honest story includes it: Read may have run the
+> gap *too* wide. He wore safety pins in his coat while eight million sat in the vault —
+> money can be over-saved as well as over-spent, and we'll open that file another day.
 >
 > The town misfiled him for ninety-two years because wealth, real wealth, is invisible.
 > The car you can see. The portfolio you can't. Remember that the next time you're
 > ranking strangers by their coats.
 >
-> Verdict: death by natural causes. Wealth by unnatural patience.
+> Verdict: wealth by unnatural patience.
 
 **[ON-SCREEN stamp: VERDICT — UNNATURAL PATIENCE.]**
 
@@ -188,7 +188,7 @@ across decades — flat, flat, flat, then vertical. Year markers tick past: 1950
 
 ## THE LEDGER (9:10–10:30)
 
-**[VISUAL: hard aesthetic shift — out of the noir room, into the clean Wealth Dashboard UI
+**[VISUAL: hard aesthetic shift — out of the archive room, into the clean Wealth Dashboard UI
 (screen capture, navy theme). A compounding chart animates live as the numbers are spoken.]**
 **[MUSIC: pulse lifts slightly — resolution, not hype.]**
 
@@ -203,15 +203,15 @@ across decades — flat, flat, flat, then vertical. Year markers tick past: 1950
 > The clock is the lever nobody respects, and it's the only one you can't buy back.
 >
 > I've put this exact calculator in the free Wealth Dashboard — link below. Put in your own
-> gap, your own age, and run your own autopsy while you're still the one holding the pen.
+> gap, your own age, and run your own numbers while you're still the one writing the story.
 >
-> None of this is financial advice — it's arithmetic, and a dead man's paper trail.
-> Every source for this case is in the description.
+> None of this is financial advice — it's arithmetic, and one man's remarkable paper trail.
+> Every source for this story is in the description.
 >
-> Next on the slab: a man who earned one hundred and eight million dollars in the NBA —
+> Next in the archive: a man who earned one hundred and eight million dollars in the NBA —
 > and lost every cent. Same math. Opposite direction.
 >
-> The Auditor, closing case file zero-zero-one. Every fortune leaves a paper trail.
+> The Archivist, closing file zero-zero-one. Every fortune leaves a paper trail.
 
 **[VISUAL: dashboard chart freezes; cut to black; lamp clicks off. End card: subscribe +
 Episode 2 thumbnail + dashboard QR/link.]**
@@ -226,11 +226,13 @@ Episode 2 thumbnail + dashboard QR/link.]**
 
 ## Production notes
 
-- ~24 generated shots + 6 reusable library shots (records room, vault, lamp, stamp inserts).
+- ~24 generated shots + 6 reusable library shots (archive room, vault, lamp, stamp inserts).
 - Ledger segment is 100% real dashboard screen capture — no generation needed.
 - Attribute soft claims in VO exactly as scripted ("friends estimated…") — do not harden them.
 - The $300/mo @ 8% model is illustrative (verified: FV of $300/mo at 8%/yr ≈ $55k @10y,
   $447k @30y, $1.58M @45y, $7.98M @65y). Keep the words "run his profile as a model."
+- **Tone guardrail:** Ronald Read and his family are treated with warmth and respect —
+  use "passed away" / "left behind"; avoid clinical or morbid phrasing throughout.
 
 ## Sources (paste into description)
 

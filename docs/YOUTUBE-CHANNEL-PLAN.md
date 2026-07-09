@@ -1,8 +1,8 @@
 # Finance Education YouTube Channel — Full Launch Plan
 
-**Working title: "Money Autopsy"** — a faceless, cinematic finance-education channel where every
-episode is a forensic post-mortem of one real financial life: how the money was made, where it
-died, and the exact numbers you can run on yourself.
+**Working title: "Money Stories"** — a faceless, cinematic finance-education channel where every
+episode opens the file on one real financial life: how the money was made, where it went, and
+the exact numbers you can run on yourself.
 
 This plan follows the method from *"I Used Higgsfield AI + Claude to Build a $39,500/Month
 Faceless Channel"* (Claude for research/scripts, Higgsfield MCP for visuals + voiceover, no
@@ -26,17 +26,17 @@ finance (story = retention, education = search value, wealthy audience = premium
 one historical downside — production cost — is precisely what the Claude + Higgsfield pipeline
 eliminates.
 
-## 2. The original take: "Money Autopsy"
+## 2. The original take: "Money Stories"
 
-**Premise.** Every episode opens on an outcome (a fortune, a bankruptcy, a quiet $8M estate)
-and works backwards like a forensic investigation. A consistent noir "Auditor" character
-(Higgsfield Soul ID) walks a stylized records room — ledgers, receipts, evidence boards —
-narrating the case.
+**Premise.** Every episode opens on an outcome (a hidden fortune, a spectacular collapse, a
+quiet $8M estate) and works backwards like an investigation. A consistent "Archivist"
+character (Higgsfield Soul ID) walks a stylized archive room — ledgers, receipts, evidence
+boards — narrating each case from its paper trail.
 
 **The differentiator — "The Ledger" segment.** The final 90 seconds of every episode leaves the
 story and puts the *viewer's* numbers on screen: "here is the same math applied to a normal
 salary," rendered as clean animated charts. Viewers are sent to a **free companion web app —
-the Wealth Dashboard in this repo** — to run their own autopsy. No other cinematic finance
+the Wealth Dashboard in this repo** — to run their own numbers. No other cinematic finance
 channel closes the loop from story → personal action → owned tool. That is the moat:
 
 - The dashboard is a lead magnet (email list / community later).
@@ -44,10 +44,10 @@ channel closes the loop from story → personal action → owned tool. That is t
 - Long-term monetization (premium features, courses) lives on an asset we own, not the algorithm.
 
 **Format signature (repeatable template):**
-1. **Cold open (0:00–0:30)** — the outcome, stated as a mystery. "Ronald Read pumped gas his whole life. He died with $8 million. This is the autopsy."
+1. **Cold open (0:00–0:30)** — the outcome, stated as a mystery. "Ronald Read pumped gas his whole life. He left behind $8 million. This is his story."
 2. **Act 1: The Life (0:30–3:00)** — cinematic story beats.
 3. **Act 2: The Evidence (3:00–7:00)** — the 3–4 decisions that actually drove the outcome, each with real numbers on an evidence board.
-4. **Act 3: Cause of Wealth/Death (7:00–9:00)** — the verdict, one principle, plainly stated.
+4. **Act 3: The Verdict (7:00–9:00)** — the lesson, one principle, plainly stated.
 5. **The Ledger (9:00–10:30)** — "run it on yourself": animated charts, dashboard link, CTA.
 
 Target length 9–12 minutes (mid-roll eligible). Each episode also yields 2–3 vertical Shorts
@@ -55,34 +55,37 @@ Target length 9–12 minutes (mid-roll eligible). Each episode also yields 2–3
 
 ## 3. Channel identity
 
-- **Name:** Money Autopsy (alternates: The Wealth Ledger, Post-Mortem Money, The Auditor).
+- **Name:** Money Stories (alternates: The Money Ledger, Quiet Fortunes, Paper Trails).
 - **Tagline:** "Every fortune leaves a paper trail."
-- **Host character:** "The Auditor" — faceless/silhouetted forensic accountant, created once
-  with Higgsfield Soul ID and reused in every episode for brand consistency.
-- **Visual system:** noir documentary — dark navy (#0a0f1e, matching the dashboard), paper,
-  amber lamplight, serif headlines (DM Serif Display, also matching the dashboard). Channel
-  art, thumbnails, and the app share one identity.
-- **Voice:** one consistent ElevenLabs voice — measured, dry, slightly wry. Never hypey.
-- **Thumbnail formula:** one face-or-object portrait + 3–4 word verdict ("HE DIED RICH.",
+- **Host character:** "The Archivist" — a faceless/silhouetted keeper of financial life
+  stories, created once with Higgsfield Soul ID and reused in every episode for brand
+  consistency.
+- **Visual system:** warm archive-documentary — dark navy (#0a0f1e, matching the dashboard),
+  paper, amber lamplight, serif headlines (DM Serif Display, also matching the dashboard).
+  Channel art, thumbnails, and the app share one identity.
+- **Voice:** one consistent ElevenLabs voice — measured, warm, slightly wry. Never hypey.
+- **Thumbnail formula:** one face-or-object portrait + 3–4 word hook ("SECRETLY RICH.",
   "$108M → $0"), consistent amber/navy palette, no clutter.
+- **Tone guardrail:** respectful of the real people in each story — losses and passings are
+  handled gently ("passed away", "left behind"), never clinically or mockingly.
 
 ## 4. Content plan — first 12 episodes
 
 Three pillars, rotated: **Quiet Fortunes** (aspiration), **Spectacular Collapses** (curiosity),
-**Everyday Autopsies** (search traffic + direct dashboard tie-in).
+**Everyday Money** (search traffic + direct dashboard tie-in).
 
 | # | Pillar | Episode | Ledger takeaway |
 |---|---|---|---|
-| 1 | Quiet Fortune | The janitor who died with $8M and a 20-year-old Toyota (Ronald Read) | Compounding math on a median salary |
+| 1 | Quiet Fortune | The janitor who left behind $8M and a 20-year-old Toyota (Ronald Read) | Compounding math on a median salary |
 | 2 | Collapse | The NBA star who went broke on $108M (Antoine Walker) | Lifestyle burn rate vs. income |
-| 3 | Everyday | Autopsy of a paycheck: where your money actually dies | 50/30/20 mapped in the dashboard |
+| 3 | Everyday | Where your paycheck actually goes | 50/30/20 mapped in the dashboard |
 | 4 | Quiet Fortune | The secretary who quietly amassed $9M (Sylvia Bloom) | Time-in-market vs. timing |
-| 5 | Collapse | Why lottery winners go bankrupt faster than you think | Windfall math + sudden-wealth plan |
-| 6 | Everyday | The car loan autopsy: how a $35k car costs you $150k | Opportunity-cost calculator |
+| 5 | Collapse | Why lottery winners lose it all faster than you think | Windfall math + sudden-wealth plan |
+| 6 | Everyday | The true cost of a $35k car: how it becomes $150k | Opportunity-cost calculator |
 | 7 | Everyday | The hidden 1% fee that eats a third of your retirement | Fee-drag projection chart |
 | 8 | Collapse | The man who lost a billion-dollar empire to lifestyle creep | Income ↑ vs. net-worth flatline |
-| 9 | Quiet Fortune | Die with zero: the case for spending it all | Drawdown curve modeling |
-| 10 | Everyday | The 4% rule autopsy: is it actually dead? | Retirement-number calculator |
+| 9 | Quiet Fortune | The case for spending it all (the "Die With Zero" idea) | Drawdown curve modeling |
+| 10 | Everyday | The 4% rule: does it still work? | Retirement-number calculator |
 | 11 | Collapse | How credit card points became a trap | True cost of revolving balances |
 | 12 | Quiet Fortune | The immigrant playbook: household wealth from zero | Savings-rate sensitivity chart |
 
@@ -96,7 +99,7 @@ finance audiences browse on weekends). Batch-produce 2 weeks ahead.
 | 1. Research & fact-check | Claude + primary sources | 1–2 h | Real cases only; save citations in `/docs/episodes/` — human verifies every number |
 | 2. Script (template above) | Claude, then human edit pass | 1 h | The human pass is non-negotiable: voice, jokes, verdicts |
 | 3. Scene map / shot list | Claude | 15 min | Scene-by-scene prompt list for Higgsfield |
-| 4. Visuals | Higgsfield MCP from Claude (Soul ID for The Auditor) | 1–2 h | Cinematic beats only; reuse a shot library across episodes |
+| 4. Visuals | Higgsfield MCP from Claude (Soul ID for The Archivist) | 1–2 h | Cinematic beats only; reuse a shot library across episodes |
 | 5. Voiceover | ElevenLabs (via Higgsfield integration) | 15 min | One saved voice, consistent settings |
 | 6. Ledger segment | Screen-capture the Wealth Dashboard + Recharts animations | 30 min | Authentic non-AI footage; also markets the app |
 | 7. Assembly | CapCut or DaVinci Resolve (free) | 1–2 h | Music/SFX from YouTube Audio Library or Epidemic Sound |
@@ -109,7 +112,7 @@ finance audiences browse on weekends). Batch-produce 2 weeks ahead.
 
 | Tool | Tier | Why this tier | Monthly |
 |---|---|---|---|
-| Higgsfield | **Plus** (1,000 credits) | All models, 6 parallel generations, Soul V2 free allowance for The Auditor; ~150+ clips/mo. Starter (200 cr) can't cover one episode; upgrade to Ultra ($99, 3,000+ cr) if using premium models (Seedance/Veo) heavily | $39 |
+| Higgsfield | **Plus** (1,000 credits) | All models, 6 parallel generations, Soul V2 free allowance for The Archivist; ~150+ clips/mo. Starter (200 cr) can't cover one episode; upgrade to Ultra ($99, 3,000+ cr) if using premium models (Seedance/Veo) heavily | $39 |
 | ElevenLabs | **Creator** (~100k+ credits) | Commercial license is mandatory for monetized YouTube (Free plan is not licensed); 4 episodes + Shorts ≈ 40–50k credits/mo, above Starter's 30k cap; adds Professional Voice Cloning + 192kbps | $22 |
 | Claude | Pro (already owned) | Research, scripts, scene maps, drives Higgsfield via MCP/CLI | $0–20 |
 | CapCut / DaVinci Resolve | Free | Assembly and editing | $0 |
@@ -151,9 +154,9 @@ plans expire unused credits — size the plan to real monthly output rather than
 ## 8. Pre-launch checklist (before going live)
 
 - [ ] Reserve channel name + handle; verify trademark/handle availability across platforms
-- [ ] Channel art, avatar, and 3-line about section in the noir visual system
-- [ ] Create The Auditor in Higgsfield Soul ID; lock the ElevenLabs voice
-- [ ] Build a 20–30 shot reusable b-roll library (records room, ledgers, city, era shots)
+- [ ] Channel art, avatar, and 3-line about section in the archive visual system
+- [ ] Create The Archivist in Higgsfield Soul ID; lock the ElevenLabs voice
+- [ ] Build a 20–30 shot reusable b-roll library (archive room, ledgers, city, era shots)
 - [ ] Write and produce Episodes 1–3 **before** publishing anything (never launch with one video)
 - [ ] Trailer-cut Episode 1's cold open as the channel trailer + first 3 Shorts
 - [ ] Deploy the Wealth Dashboard publicly (GitHub Pages works — repo is a static PWA) with a

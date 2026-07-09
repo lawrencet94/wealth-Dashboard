@@ -103,8 +103,23 @@ finance audiences browse on weekends). Batch-produce 2 weeks ahead.
 | 8. Packaging | Thumbnail (Canva/Higgsfield still), title, description, chapters | 30 min | Draft 5 titles, pick 1; A/B thumbnails once eligible |
 | 9. Shorts | Cut 2–3 verticals from the master | 30 min | Hook in first second, captions burned in |
 
-**≈ 6–8 hours per episode** end-to-end, one person. Monthly tool cost ≈ **$60–110**
-(Higgsfield creator plan ~$29–49, ElevenLabs ~$22, Claude already in hand, editing free).
+**≈ 6–8 hours per episode** end-to-end, one person.
+
+### Accounts & tech stack cost (2026 pricing, annual billing)
+
+| Tool | Tier | Why this tier | Monthly |
+|---|---|---|---|
+| Higgsfield | **Plus** (1,000 credits) | All models, 6 parallel generations, Soul V2 free allowance for The Auditor; ~150+ clips/mo. Starter (200 cr) can't cover one episode; upgrade to Ultra ($99, 3,000+ cr) if using premium models (Seedance/Veo) heavily | $39 |
+| ElevenLabs | **Creator** (~100k+ credits) | Commercial license is mandatory for monetized YouTube (Free plan is not licensed); 4 episodes + Shorts ≈ 40–50k credits/mo, above Starter's 30k cap; adds Professional Voice Cloning + 192kbps | $22 |
+| Claude | Pro (already owned) | Research, scripts, scene maps, drives Higgsfield via MCP/CLI | $0–20 |
+| CapCut / DaVinci Resolve | Free | Assembly and editing | $0 |
+| Music/SFX | YouTube Audio Library | Free tier sufficient at launch (Epidemic Sound ~$18/mo later) | $0 |
+| Canva Free + GitHub Pages | Free | Thumbnails; dashboard hosting | $0 |
+| **Launch total** | | | **~$62–82** |
+| Scale-up (Ultra + Epidemic Sound) | | | **~$140–160** |
+
+Note: Higgsfield MCP/CLI access draws on the plan's credits (no separate account), and some
+plans expire unused credits — size the plan to real monthly output rather than stockpiling.
 
 ## 6. Compliance & monetization safety (important)
 

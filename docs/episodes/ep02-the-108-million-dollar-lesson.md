@@ -169,7 +169,7 @@ folder beside it, marked WALKER, A. — VOL. II.]**
 
 ## THE LEDGER (9:05–10:30)
 
-**[VISUAL: aesthetic shift — into the Wealth Dashboard UI (screen capture, navy theme).
+**[VISUAL: aesthetic shift — into the Ledger calculator page (screen capture, navy theme).
 A "runway" bar chart animates: monthly spending vs. months of savings.]**
 **[MUSIC: pulse lifts slightly — resolution, not hype.]**
 
@@ -186,8 +186,11 @@ A "runway" bar chart animates: monthly spending vs. months of savings.]**
 > just pointed the other way. Every dollar of spending you cut does double work:
 > it grows the savings *and* shrinks the monthly number they're divided by.
 >
-> I've added a runway calculator to the free Wealth Dashboard — link below. Put in
-> your real numbers and find out how many months your file stays open.
+> The runway calculator is in the free Ledger calculators — link below. Put in
+> your real numbers and find out how many months your file stays open. And to watch
+> that runway grow month by month — your real net worth, tracked across every account,
+> with projections tailored to you — our Wealth Garden app is on the App Store,
+> also linked below.
 >
 > None of this is financial advice — it's arithmetic, and one man's very public
 > paper trail, told in his own words. Every source is in the description.
@@ -198,7 +201,7 @@ A "runway" bar chart animates: monthly spending vs. months of savings.]**
 > The Archivist, closing file zero-zero-two. Every fortune leaves a paper trail.
 
 **[VISUAL: runway chart freezes; cut to black; lamp clicks off. End card: subscribe +
-Episode 3 thumbnail + dashboard QR/link.]**
+Episode 3 thumbnail + Ledger calculator QR/link + Wealth Garden App Store badge.]**
 
 ---
 
@@ -206,7 +209,7 @@ Episode 3 thumbnail + dashboard QR/link.]**
 
 1. **The Cold Open** (0:00–0:35, vertical crop) — post 2 days before the episode.
 2. **The Taxes Beat** ("$108M… $55M went to the taxman" ledger animation) — day of release.
-3. **The Runway Question** ("if your paycheck stopped tomorrow…" + dashboard runway bars) — 3 days after, CTA to full video.
+3. **The Runway Question** ("if your paycheck stopped tomorrow…" + calculator runway bars) — 3 days after, CTA to full video.
 
 ## Production notes
 

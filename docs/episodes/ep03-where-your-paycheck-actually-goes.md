@@ -170,8 +170,8 @@ READ and WALKER — from the earlier episodes.]**
 
 ## THE LEDGER (8:50–10:15)
 
-**[VISUAL: aesthetic shift — into the Wealth Dashboard UI (screen capture, navy theme).
-A budget donut animates: needs / wants / the missing line, then a compounding curve
+**[VISUAL: aesthetic shift — into the Ledger calculator page (screen capture, navy theme).
+The three-bucket bars animate: needs / wants / the missing line, then a compounding curve
 grows out of the 20% slice.]**
 **[MUSIC: pulse lifts slightly — resolution, not hype.]**
 
@@ -186,8 +186,11 @@ grows out of the 20% slice.]**
 > The average household already earns its way to wealth. It just never writes
 > the first instruction.
 >
-> The free Wealth Dashboard — link below — has this exact three-bucket view.
-> Map one month. Most people find the leaks in the first ten minutes.
+> The free Ledger calculators — link below — have this exact three-bucket view.
+> Map one month. Most people find the leaks in the first ten minutes. And if you
+> want the whole file in one place — your accounts, your net worth, projections
+> tailored to your real numbers — our Wealth Garden app is on the App Store,
+> also linked below.
 >
 > None of this is financial advice — it's arithmetic, and the government's own
 > ledger. Every source and every figure is in the description.
@@ -198,8 +201,8 @@ grows out of the 20% slice.]**
 >
 > The Archivist, closing file zero-zero-three. Every fortune leaves a paper trail.
 
-**[VISUAL: donut chart freezes; cut to black; lamp clicks off. End card: subscribe +
-Episode 4 thumbnail + dashboard QR/link.]**
+**[VISUAL: bucket bars freeze; cut to black; lamp clicks off. End card: subscribe +
+Episode 4 thumbnail + Ledger calculator QR/link + Wealth Garden App Store badge.]**
 
 ---
 
@@ -207,12 +210,13 @@ Episode 4 thumbnail + dashboard QR/link.]**
 
 1. **The Big Three** ("You can't out-coffee a bad car payment" + house/car/plate tags) — post 2 days before.
 2. **The Missing Line** (blank ledger line moving to the top) — day of release.
-3. **The $1,700 Slice** (donut → compounding curve to $2M dashboard animation) — 3 days after, CTA to full video.
+3. **The $1,700 Slice** (buckets → compounding curve to $2M calculator animation) — 3 days after, CTA to full video.
 
 ## Production notes
 
 - Lightest generation load of the first three episodes (~18 shots) — leans on the
-  archive library plus heavy dashboard screen capture. Good episode to batch first.
+  archive library plus heavy screen capture of the Ledger calculator page. Good episode
+  to batch first.
 - **Verified figures (BLS Consumer Expenditure Survey 2024, released Dec 2025):**
   income before taxes $104,207; average expenditures $78,535; housing $26,266 (33%);
   housing + transportation = 50% of spending (transportation ≈ $13k derived);

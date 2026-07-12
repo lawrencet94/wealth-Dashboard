@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Ledger — free calculators from the Money Stories channel. Run your own compounding, runway, budget and windfall numbers.">
+<meta name="theme-color" content="#0a0f1e">
+<title>The Ledger — Money Stories Calculators</title>
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #0a0f1e; color: #e8edf4;
+    font-family: 'Inter', system-ui, sans-serif; font-weight: 300;
+    -webkit-font-smoothing: antialiased; line-height: 1.55;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px 64px; }
+
+  header { text-align: center; padding: 44px 0 10px; }
+  .kicker { font-size: 12px; letter-spacing: .28em; color: #d4a853; text-transform: uppercase; }
+  h1 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 40px; margin: 6px 0 4px; }
+  .tagline { color: #8a9bb5; font-size: 15px; }
+
+  nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 22px 0 8px; }
+  nav a {
+    color: #c0ccdd; text-decoration: none; font-size: 13px; font-weight: 500;
+    padding: 7px 14px; border: 1px solid rgba(138,155,181,.25); border-radius: 999px;
+  }
+  nav a:hover { border-color: #d4a853; color: #d4a853; }
+
+  section.card {
+    background: #111d36; border: 1px solid rgba(138,155,181,.14);
+    border-radius: 14px; padding: 24px 22px; margin-top: 26px;
+    scroll-margin-top: 16px;
+  }
+  .ep { font-size: 11px; letter-spacing: .2em; color: #5a6a80; text-transform: uppercase; }
+  h2 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 26px; margin: 4px 0 2px; }
+  .sub { color: #8a9bb5; font-size: 14px; margin-bottom: 18px; }
+
+  .inputs { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 18px; }
+  label { display: block; font-size: 12px; color: #8a9bb5; margin-bottom: 5px; font-weight: 500; }
+  input, select {
+    width: 100%; background: #0a0f1e; color: #e8edf4;
+    border: 1px solid rgba(138,155,181,.3); border-radius: 8px;
+    padding: 10px 12px; font-size: 16px; font-family: inherit; font-weight: 400;
+  }
+  input:focus, select:focus { outline: none; border-color: #d4a853; }
+
+  .hero { font-family: 'DM Serif Display', serif; font-size: 38px; color: #d4a853; line-height: 1.1; }
+  .hero-label { font-size: 13px; color: #8a9bb5; margin-bottom: 2px; }
+  .stat-row { display: flex; flex-wrap: wrap; gap: 10px 34px; align-items: baseline; margin-bottom: 14px; }
+  .mini .hero { font-size: 24px; color: #e8edf4; }
+
+  .chartbox { position: relative; margin-top: 6px; }
+  .chartbox svg { display: block; width: 100%; height: auto; }
+  .tooltip {
+    position: absolute; pointer-events: none; display: none;
+    background: #0a0f1e; border: 1px solid rgba(138,155,181,.35); border-radius: 8px;
+    padding: 8px 11px; font-size: 12.5px; color: #c0ccdd; white-space: nowrap;
+    transform: translate(-50%, -110%); z-index: 2;
+  }
+  .tooltip b { color: #e8edf4; font-weight: 600; }
+  .tooltip .tt-gold { color: #d4a853; }
+
+  .bars { margin-top: 6px; }
+  .bar-row { margin-bottom: 12px; }
+  .bar-head { display: flex; justify-content: space-between; font-size: 13.5px; margin-bottom: 5px; }
+  .bar-head .amt { color: #e8edf4; font-weight: 500; }
+  .bar-track { background: #0a0f1e; border-radius: 6px; height: 14px; position: relative; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 6px 4px 4px 6px; background: #3a4a68; min-width: 2px; }
+  .bar-fill.gold { background: #d4a853; }
+  .bench { position: absolute; top: -4px; bottom: -4px; width: 2px; background: #8a9bb5; }
+  .bench-note { font-size: 12px; color: #5a6a80; margin-top: 6px; }
+
+  .note { font-size: 13px; color: #8a9bb5; margin-top: 14px; border-top: 1px solid rgba(138,155,181,.12); padding-top: 12px; }
+
+  .cta {
+    background: linear-gradient(160deg, #16264a 0%, #111d36 70%);
+    border-color: rgba(212,168,83,.35); text-align: center;
+  }
+  .cta h2 { font-size: 28px; }
+  .cta p { color: #c0ccdd; font-size: 15px; max-width: 480px; margin: 8px auto 18px; }
+  .applink {
+    display: inline-block; background: #d4a853; color: #0a0f1e; text-decoration: none;
+    font-weight: 600; font-size: 15px; padding: 13px 26px; border-radius: 10px;
+  }
+  .applink:hover { background: #e0b866; }
+  .cta .small { font-size: 12px; color: #5a6a80; margin-top: 12px; }
+
+  footer { text-align: center; color: #5a6a80; font-size: 12.5px; margin-top: 40px; line-height: 1.7; }
+  footer a { color: #8a9bb5; }
+  @media (max-width: 480px) { h1 { font-size: 32px; } .hero { font-size: 32px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Money Stories</div>
+    <h1>The Ledger</h1>
+    <div class="tagline">Every fortune leaves a paper trail. Run yours.</div>
+  </header>
+
+  <nav>
+    <a href="#gap-clock">Gap &amp; Clock</a>
+    <a href="#runway">Runway</a>
+    <a href="#buckets">Three Buckets</a>
+    <a href="#windfall">Windfall</a>
+    <a href="#wealth-garden">Wealth Garden</a>
+  </nav>
+
+  <div style="text-align:center; margin-top:6px;">
+    <select id="cur" style="width:auto; padding:6px 10px; font-size:13px;" aria-label="Currency">
+      <option value="$">$ USD</option>
+      <option value="£">£ GBP</option>
+      <option value="€">€ EUR</option>
+    </select>
+  </div>
+
+  <!-- 1 · THE GAP & THE CLOCK -->
+  <section class="card" id="gap-clock">
+    <div class="ep">Files 001 &amp; 004 · The Janitor · The Secretary</div>
+    <h2>The Gap &amp; The Clock</h2>
+    <div class="sub">What a steady monthly amount quietly becomes. The two levers: how much stays, and how long it stays.</div>
+    <div class="inputs">
+      <div><label for="gc-monthly">Monthly amount</label><input id="gc-monthly" type="number" inputmode="decimal" value="300" min="0" step="50"></div>
+      <div><label for="gc-rate">Annual return %</label><input id="gc-rate" type="number" inputmode="decimal" value="8" min="0" max="20" step="0.5"></div>
+      <div><label for="gc-years">Years</label><input id="gc-years" type="number" inputmode="numeric" value="40" min="1" max="70" step="1"></div>
+    </div>
+    <div class="stat-row">
+      <div><div class="hero-label">Ends at</div><div class="hero" id="gc-fv">—</div></div>
+      <div class="mini"><div class="hero-label">You put in</div><div class="hero" id="gc-in">—</div></div>
+      <div class="mini"><div class="hero-label">Growth did</div><div class="hero" id="gc-growth">—</div></div>
+    </div>
+    <div class="chartbox" id="gc-chartbox">
+      <svg id="gc-chart" viewBox="0 0 640 280" role="img" aria-label="Projected growth of monthly contributions over time"></svg>
+      <div class="tooltip" id="gc-tip"></div>
+    </div>
+    <div class="note">Ronald Read's profile — around 300 a month at 8% — reaches roughly 8 million at 65 years. The last decade does more than the first three combined.</div>
+  </section>
+
+  <!-- 2 · RUNWAY -->
+  <section class="card" id="runway">
+    <div class="ep">File 002 · The All-Star</div>
+    <h2>Runway</h2>
+    <div class="sub">If your income stopped tomorrow, how many months does your file stay open?</div>
+    <div class="inputs">
+      <div><label for="rw-savings">Savings &amp; investments</label><input id="rw-savings" type="number" inputmode="decimal" value="10000" min="0" step="500"></div>
+      <div><label for="rw-spend">Monthly spending</label><input id="rw-spend" type="number" inputmode="decimal" value="3000" min="1" step="100"></div>
+    </div>
+    <div class="stat-row">
+      <div><div class="hero-label">Your runway</div><div class="hero" id="rw-out">—</div></div>
+    </div>
+    <div class="bars">
+      <div class="bar-row">
+        <div class="bar-head"><span>Months of runway</span><span class="amt" id="rw-months-label">—</span></div>
+        <div class="bar-track" id="rw-track"><div class="bar-fill gold" id="rw-fill" style="width:0%"></div><div class="bench" id="rw-bench"></div></div>
+        <div class="bench-note">Marker = 6 months, the common minimum benchmark. Antoine Walker's ~24-month runway is the scale's far edge.</div>
+      </div>
+    </div>
+    <div class="note">Every spending cut works twice: it grows the savings and shrinks the number they're divided by.</div>
+  </section>
+
+  <!-- 3 · THREE BUCKETS -->
+  <section class="card" id="buckets">
+    <div class="ep">File 003 · The Paycheck</div>
+    <h2>The Three Buckets</h2>
+    <div class="sub">A 50/30/20 starting map for your monthly take-home pay. The order matters more than the exact split.</div>
+    <div class="inputs">
+      <div><label for="bk-income">Monthly take-home pay</label><input id="bk-income" type="number" inputmode="decimal" value="4000" min="0" step="100"></div>
+    </div>
+    <div class="bars">
+      <div class="bar-row">
+        <div class="bar-head"><span>Needs · 50%</span><span class="amt" id="bk-needs">—</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-head"><span>Wants · 30%</span><span class="amt" id="bk-wants">—</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:30%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-head"><span>The missing line (pay yourself first) · 20%</span><span class="amt" id="bk-future">—</span></div>
+        <div class="bar-track"><div class="bar-fill gold" style="width:20%"></div></div>
+      </div>
+    </div>
+    <div class="stat-row" style="margin-top:16px;">
+      <div class="mini"><div class="hero-label">Missing line in 15 years (8%)</div><div class="hero" id="bk-15">—</div></div>
+      <div class="mini"><div class="hero-label">In 30 years</div><div class="hero" id="bk-30">—</div></div>
+    </div>
+    <div class="note">What's paid first gets paid. What's paid last gets skipped. Move the missing line to the top and automate it on payday.</div>
+  </section>
+
+  <!-- 4 · WINDFALL -->
+  <section class="card" id="windfall">
+    <div class="ep">File 005 · The Jackpot</div>
+    <h2>The Windfall</h2>
+    <div class="sub">A lump sum is a salary, not a fortune. See the income it can sustain — and the time it buys at your real spending.</div>
+    <div class="inputs">
+      <div><label for="wf-lump">Lump sum</label><input id="wf-lump" type="number" inputmode="decimal" value="1000000" min="0" step="10000"></div>
+      <div><label for="wf-spend">Your monthly spending</label><input id="wf-spend" type="number" inputmode="decimal" value="4000" min="1" step="100"></div>
+    </div>
+    <div class="stat-row">
+      <div><div class="hero-label">Sustainable income (4%/yr)</div><div class="hero" id="wf-income">—</div></div>
+      <div class="mini"><div class="hero-label">Per month</div><div class="hero" id="wf-monthly">—</div></div>
+      <div class="mini"><div class="hero-label">Runway if simply spent</div><div class="hero" id="wf-runway">—</div></div>
+    </div>
+    <div class="note">The protocol: tell almost no one · do nothing for 6–12 months · take fee-only advice · convert it into a wider gap and a longer clock.</div>
+  </section>
+
+  <!-- WEALTH GARDEN CTA -->
+  <section class="card cta" id="wealth-garden">
+    <div class="ep">Take it further</div>
+    <h2>Wealth Garden</h2>
+    <p>These calculators show one number at a time. <strong>Wealth Garden</strong> — our iPhone app — tracks your actual net worth across accounts and runs projections tailored to your real numbers, so your whole file lives in one place.</p>
+    <a class="applink" href="https://apps.apple.com/gb/app/wealth-garden/id6761027810" target="_blank" rel="noopener">Download on the App Store</a>
+    <div class="small">iPhone &amp; iPad · App Store</div>
+  </section>
+
+  <footer>
+    From the <strong>Money Stories</strong> channel — every fortune leaves a paper trail.<br>
+    Education and entertainment, not financial advice. Projections are illustrative and assume constant returns; markets don't move in straight lines.
+  </footer>
+</div>
+
+<script>
+(function () {
+  var CUR = "$";
+  function $(id) { return document.getElementById(id); }
+  function num(id, fallback) {
+    var v = parseFloat($(id).value);
+    return isFinite(v) && v >= 0 ? v : fallback;
+  }
+  function fmt(v) {
+    if (!isFinite(v)) return "—";
+    var abs = Math.abs(v);
+    if (abs >= 1e6) return CUR + (v / 1e6).toFixed(2).replace(/\.00$/, "") + "M";
+    if (abs >= 1e4) return CUR + Math.round(v / 1000) + "k";
+    return CUR + Math.round(v).toLocaleString();
+  }
+  function fmtFull(v) { return CUR + Math.round(v).toLocaleString(); }
+
+  /* series of yearly balances for monthly contributions at annual rate */
+  function series(monthly, ratePct, years) {
+    var r = ratePct / 100 / 12, bal = 0, out = [{ y: 0, bal: 0, paid: 0 }];
+    for (var m = 1; m <= years * 12; m++) {
+      bal = bal * (1 + r) + monthly;
+      if (m % 12 === 0) out.push({ y: m / 12, bal: bal, paid: monthly * m });
+    }
+    return out;
+  }
+
+  /* ---- 1 · Gap & Clock ---- */
+  var gcData = [];
+  function drawChart() {
+    var svg = $("gc-chart"), W = 640, H = 280;
+    var m = { t: 34, r: 18, b: 30, l: 56 };
+    var data = gcData;
+    var maxV = Math.max(data[data.length - 1].bal, 1);
+    var maxY = data[data.length - 1].y || 1;
+    function X(y) { return m.l + (y / maxY) * (W - m.l - m.r); }
+    function Y(v) { return H - m.b - (v / maxV) * (H - m.t - m.b); }
+
+    var s = "";
+    /* gridlines + y labels (recessive) */
+    for (var g = 1; g <= 4; g++) {
+      var gv = maxV * g / 4, gy = Y(gv);
+      s += '<line x1="' + m.l + '" y1="' + gy + '" x2="' + (W - m.r) + '" y2="' + gy + '" stroke="rgba(138,155,181,.12)" stroke-width="1"/>';
+      s += '<text x="' + (m.l - 8) + '" y="' + (gy + 4) + '" text-anchor="end" font-size="11" fill="#5a6a80">' + fmt(gv) + "</text>";
+    }
+    /* x axis labels */
+    var step = maxY <= 12 ? 2 : maxY <= 30 ? 5 : 10;
+    for (var yr = 0; yr <= maxY; yr += step) {
+      s += '<text x="' + X(yr) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="11" fill="#5a6a80">' + yr + "y</text>";
+    }
+    /* area + line */
+    var line = "", area = "M" + X(0) + "," + Y(0);
+    data.forEach(function (d, i) {
+      var px = X(d.y), py = Y(d.bal);
+      line += (i === 0 ? "M" : "L") + px + "," + py;
+      area += "L" + px + "," + py;
+    });
+    area += "L" + X(maxY) + "," + Y(0) + "Z";
+    s += '<path d="' + area + '" fill="rgba(212,168,83,.08)"/>';
+    s += '<path d="' + line + '" fill="none" stroke="#d4a853" stroke-width="2" stroke-linejoin="round"/>';
+    /* endpoint marker + direct label */
+    var last = data[data.length - 1];
+    s += '<circle cx="' + X(last.y) + '" cy="' + Y(last.bal) + '" r="4" fill="#d4a853" stroke="#111d36" stroke-width="2"/>';
+    s += '<text x="' + (X(last.y) - 8) + '" y="' + (Y(last.bal) - 10) + '" text-anchor="end" font-size="12.5" font-weight="600" fill="#e8edf4">' + fmt(last.bal) + "</text>";
+    /* hover crosshair placeholder */
+    s += '<line id="gc-cross" x1="0" y1="' + m.t + '" x2="0" y2="' + (H - m.b) + '" stroke="rgba(232,237,244,.35)" stroke-width="1" style="display:none"/>';
+    s += '<circle id="gc-dot" r="4.5" fill="#d4a853" stroke="#0a0f1e" stroke-width="2" style="display:none"/>';
+    svg.innerHTML = s;
+    svg._X = X; svg._Y = Y; svg._maxY = maxY;
+  }
+  function calcGC() {
+    var monthly = num("gc-monthly", 0), rate = num("gc-rate", 0), years = Math.max(1, Math.min(70, num("gc-years", 40)));
+    gcData = series(monthly, rate, years);
+    var last = gcData[gcData.length - 1];
+    $("gc-fv").textContent = fmt(last.bal);
+    $("gc-in").textContent = fmt(last.paid);
+    $("gc-growth").textContent = fmt(last.bal - last.paid);
+    drawChart();
+  }
+  /* hover layer */
+  (function hover() {
+    var box = $("gc-chartbox"), svg = $("gc-chart"), tip = $("gc-tip");
+    function onmove(ev) {
+      if (!gcData.length) return;
+      var pt = ev.touches ? ev.touches[0] : ev;
+      var rect = svg.getBoundingClientRect();
+      var fx = (pt.clientX - rect.left) / rect.width * 640;
+      var yr = Math.round((fx - 56) / (640 - 56 - 18) * svg._maxY);
+      yr = Math.max(0, Math.min(svg._maxY, yr));
+      var d = gcData[yr]; if (!d) return;
+      var cx = svg._X(d.y), cy = svg._Y(d.bal);
+      var cross = $("gc-cross"), dot = $("gc-dot");
+      cross.setAttribute("x1", cx); cross.setAttribute("x2", cx); cross.style.display = "block";
+      dot.setAttribute("cx", cx); dot.setAttribute("cy", cy); dot.style.display = "block";
+      tip.style.display = "block";
+      tip.style.left = (cx / 640 * rect.width) + "px";
+      tip.style.top = (cy / 280 * rect.height) + "px";
+      tip.innerHTML = "<b>Year " + d.y + "</b><br>Balance: <span class='tt-gold'>" + fmtFull(d.bal) + "</span><br>Paid in: " + fmtFull(d.paid);
+    }
+    function off() { tip.style.display = "none"; $("gc-cross").style.display = "none"; $("gc-dot").style.display = "none"; }
+    box.addEventListener("mousemove", onmove);
+    box.addEventListener("touchmove", onmove, { passive: true });
+    box.addEventListener("mouseleave", off);
+    box.addEventListener("touchend", off);
+  })();
+
+  /* ---- 2 · Runway ---- */
+  function calcRW() {
+    var savings = num("rw-savings", 0), spend = Math.max(1, num("rw-spend", 1));
+    var months = savings / spend;
+    var label = months >= 24 ? (months / 12).toFixed(1) + " years" : months.toFixed(1) + " months";
+    $("rw-out").textContent = label;
+    $("rw-months-label").textContent = months.toFixed(1) + " mo";
+    var scale = 24; /* bar scale: 24 months */
+    $("rw-fill").style.width = Math.min(100, months / scale * 100) + "%";
+    $("rw-bench").style.left = (6 / scale * 100) + "%";
+  }
+
+  /* ---- 3 · Buckets ---- */
+  function calcBK() {
+    var inc = num("bk-income", 0);
+    $("bk-needs").textContent = fmtFull(inc * 0.5);
+    $("bk-wants").textContent = fmtFull(inc * 0.3);
+    $("bk-future").textContent = fmtFull(inc * 0.2);
+    var s15 = series(inc * 0.2, 8, 15), s30 = series(inc * 0.2, 8, 30);
+    $("bk-15").textContent = fmt(s15[s15.length - 1].bal);
+    $("bk-30").textContent = fmt(s30[s30.length - 1].bal);
+  }
+
+  /* ---- 4 · Windfall ---- */
+  function calcWF() {
+    var lump = num("wf-lump", 0), spend = Math.max(1, num("wf-spend", 1));
+    $("wf-income").textContent = fmt(lump * 0.04) + "/yr";
+    $("wf-monthly").textContent = fmtFull(lump * 0.04 / 12);
+    var months = lump / spend;
+    $("wf-runway").textContent = months >= 24 ? (months / 12).toFixed(1) + " years" : Math.round(months) + " months";
+  }
+
+  function recalcAll() { calcGC(); calcRW(); calcBK(); calcWF(); }
+  ["gc-monthly", "gc-rate", "gc-years"].forEach(function (id) { $(id).addEventListener("input", calcGC); });
+  ["rw-savings", "rw-spend"].forEach(function (id) { $(id).addEventListener("input", calcRW); });
+  $("bk-income").addEventListener("input", calcBK);
+  ["wf-lump", "wf-spend"].forEach(function (id) { $(id).addEventListener("input", calcWF); });
+  $("cur").addEventListener("change", function () { CUR = this.value; recalcAll(); });
+  recalcAll();
+})();
+</script>
+</body>
+</html>

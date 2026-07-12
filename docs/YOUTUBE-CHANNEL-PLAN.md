@@ -35,13 +35,17 @@ boards — narrating each case from its paper trail.
 
 **The differentiator — "The Ledger" segment.** The final 90 seconds of every episode leaves the
 story and puts the *viewer's* numbers on screen: "here is the same math applied to a normal
-salary," rendered as clean animated charts. Viewers are sent to a **free companion web app —
-the Wealth Dashboard in this repo** — to run their own numbers. No other cinematic finance
-channel closes the loop from story → personal action → owned tool. That is the moat:
+salary," rendered as clean animated charts. Viewers are sent to the **free Ledger calculators**
+(`calculator.html` in this repo, served via GitHub Pages) to run their own numbers, and from
+there to **Wealth Garden** — the iOS app already live on the App Store
+(https://apps.apple.com/gb/app/wealth-garden/id6761027810) — to track their real net worth and
+run tailored projections. No other cinematic finance channel closes the loop from
+story → personal action → owned tool. That is the moat:
 
-- The dashboard is a lead magnet (email list / community later).
-- Dashboard screen recordings double as authentic, non-AI b-roll (helps originality review).
-- Long-term monetization (premium features, courses) lives on an asset we own, not the algorithm.
+- The two-step funnel: free calculator link in every description → Wealth Garden app install.
+- Calculator/dashboard screen recordings double as authentic, non-AI b-roll (helps originality review).
+- Long-term monetization (the app, premium features, courses) lives on assets we own, not the algorithm.
+- The standard description footer with both links lives in `docs/DESCRIPTION-TEMPLATE.md`.
 
 **Format signature (repeatable template):**
 1. **Cold open (0:00–0:30)** — the outcome, stated as a mystery. "Ronald Read pumped gas his whole life. He left behind $8 million. This is his story."
@@ -147,9 +151,10 @@ plans expire unused credits — size the plan to real monthly output rather than
 2. **Phase 2 (months 3–6):** AdSense + affiliates that fit the Ledger segment natively
    (brokerages, budgeting tools, books cited in episodes).
 3. **Phase 3 (months 6–12):** sponsorships (finance sponsors pay top-tier CPMs for this
-   audience), dashboard email list.
-4. **Phase 4 (year 1+):** premium dashboard features / templates / community — revenue on an
-   asset we own.
+   audience), and the Wealth Garden funnel — every description and Ledger segment routes
+   calculator users toward the App Store listing.
+4. **Phase 4 (year 1+):** Wealth Garden growth (premium features / subscriptions), templates,
+   community — revenue on assets we own.
 
 ## 8. Pre-launch checklist (before going live)
 
@@ -159,8 +164,12 @@ plans expire unused credits — size the plan to real monthly output rather than
 - [ ] Build a 20–30 shot reusable b-roll library (archive room, ledgers, city, era shots)
 - [ ] Write and produce Episodes 1–3 **before** publishing anything (never launch with one video)
 - [ ] Trailer-cut Episode 1's cold open as the channel trailer + first 3 Shorts
-- [ ] Deploy the Wealth Dashboard publicly (GitHub Pages works — repo is a static PWA) with a
-      `?ref=youtube` landing state and the disclaimer
+- [x] Ledger calculators built (`calculator.html`: Gap & Clock, Runway, Three Buckets,
+      Windfall + Wealth Garden App Store CTA)
+- [ ] Enable GitHub Pages (Settings → Pages → Deploy from branch → `main` / root) and verify
+      https://lawrencet94.github.io/wealth-Dashboard/calculator.html loads
+- [ ] Description footer from `docs/DESCRIPTION-TEMPLATE.md` ready to paste (calculator link +
+      Wealth Garden App Store link + disclaimer)
 - [ ] Descriptions template: hook line, chapters, dashboard link, sources, disclaimer
 - [ ] Set upload schedule + 2-week content buffer
 - [ ] Enable altered-content disclosure; confirm ad-suitability self-rating workflow

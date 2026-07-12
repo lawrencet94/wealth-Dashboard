@@ -53,7 +53,7 @@ folder yet, bulging. The Archivist slides out a single lottery ticket, pristine.
 a page reading "70% OF LOTTERY WINNERS GO BANKRUPT," photocopied over and over, each
 copy blurrier than the last.]**
 
-> **VO:** First, the autopsy of a statistic — because this archive checks its numbers,
+> **VO:** First, the fact-check — because this archive checks its numbers,
 > even the famous ones. The seventy-percent figure is usually credited to the National
 > Endowment for Financial Education. Trace it back and here's what you find: a
 > think-tank discussion in 2001, where a participant apparently said it out loud —

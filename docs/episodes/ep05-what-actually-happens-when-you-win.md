@@ -180,9 +180,9 @@ mirror each other on the desk.]**
 
 ## THE LEDGER (8:55–10:30)
 
-**[VISUAL: aesthetic shift — into the Wealth Dashboard UI (screen capture, navy theme).
-A lump sum lands on screen: $1,000,000. It converts into a modest annual income bar
-beside a salary bar.]**
+**[VISUAL: aesthetic shift — into the Ledger calculator page (screen capture, navy theme).
+A lump sum lands in the Windfall calculator: $1,000,000. It converts into a modest
+sustainable-income figure beside the monthly-spending input.]**
 **[MUSIC: pulse lifts slightly — resolution, not hype.]**
 
 > **VO:** Now — The Ledger. Your numbers, and a protocol you'll hopefully need someday.
@@ -199,9 +199,12 @@ beside a salary bar.]**
 > by fee, not by commission. Four: convert it into the two levers this archive keeps
 > stamping — a wider gap, and a longer clock.
 >
-> The free Wealth Dashboard — link below — has the windfall view: enter any lump sum
+> The free Ledger calculators — link below — have the windfall view: enter any lump sum
 > and see the income it sustains, and the runway it buys at your real monthly spend.
 > Run your inheritance, your bonus, your imaginary jackpot. Write the instructions now.
+> And when the money is real — track it. Our Wealth Garden app, on the App Store and
+> linked below, keeps your whole net worth in one place and runs projections tailored
+> to your actual numbers. Instructions, written down.
 >
 > None of this is financial advice — it's arithmetic, thirty-five thousand court
 > records, and one woman's honesty about what the money did. Every source is in
@@ -213,8 +216,8 @@ beside a salary bar.]**
 >
 > The Archivist, closing file zero-zero-five. Every fortune leaves a paper trail.
 
-**[VISUAL: windfall chart freezes; cut to black; lamp clicks off. End card: subscribe +
-Episode 6 thumbnail + dashboard QR/link.]**
+**[VISUAL: windfall figures freeze; cut to black; lamp clicks off. End card: subscribe +
+Episode 6 thumbnail + Ledger calculator QR/link + Wealth Garden App Store badge.]**
 
 ---
 

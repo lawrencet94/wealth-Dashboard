@@ -188,8 +188,8 @@ across decades — flat, flat, flat, then vertical. Year markers tick past: 1950
 
 ## THE LEDGER (9:10–10:30)
 
-**[VISUAL: hard aesthetic shift — out of the archive room, into the clean Wealth Dashboard UI
-(screen capture, navy theme). A compounding chart animates live as the numbers are spoken.]**
+**[VISUAL: hard aesthetic shift — out of the archive room, into the clean Ledger calculator
+page (screen capture, navy theme). A compounding chart animates live as the numbers are spoken.]**
 **[MUSIC: pulse lifts slightly — resolution, not hype.]**
 
 > **VO:** Now — The Ledger. Your numbers, not his.
@@ -202,8 +202,11 @@ across decades — flat, flat, flat, then vertical. Year markers tick past: 1950
 > starting at twenty-five beats fifteen hundred a month starting at forty-five.
 > The clock is the lever nobody respects, and it's the only one you can't buy back.
 >
-> I've put this exact calculator in the free Wealth Dashboard — link below. Put in your own
+> This exact calculator is in the free Ledger calculators — link below. Put in your own
 > gap, your own age, and run your own numbers while you're still the one writing the story.
+> And when you're ready to track the whole file — your real net worth, across every
+> account, with projections tailored to you — our Wealth Garden app is on the App Store,
+> also linked below.
 >
 > None of this is financial advice — it's arithmetic, and one man's remarkable paper trail.
 > Every source for this story is in the description.
@@ -213,8 +216,8 @@ across decades — flat, flat, flat, then vertical. Year markers tick past: 1950
 >
 > The Archivist, closing file zero-zero-one. Every fortune leaves a paper trail.
 
-**[VISUAL: dashboard chart freezes; cut to black; lamp clicks off. End card: subscribe +
-Episode 2 thumbnail + dashboard QR/link.]**
+**[VISUAL: calculator chart freezes; cut to black; lamp clicks off. End card: subscribe +
+Episode 2 thumbnail + Ledger calculator QR/link + Wealth Garden App Store badge.]**
 
 ---
 
@@ -222,12 +225,14 @@ Episode 2 thumbnail + dashboard QR/link.]**
 
 1. **The Cold Open** (0:00–0:32, vertical crop) — post 2 days before the episode.
 2. **The Lehman Beat** (Exhibit B fire shot + "95 boring stocks…" line) — day of release.
-3. **The Clock Ladder** ($55k → $450k → $1.6M → $8M dashboard animation) — 3 days after, CTA to full video.
+3. **The Clock Ladder** ($55k → $450k → $1.6M → $8M calculator animation) — 3 days after, CTA to full video.
 
 ## Production notes
 
 - ~24 generated shots + 6 reusable library shots (archive room, vault, lamp, stamp inserts).
-- Ledger segment is 100% real dashboard screen capture — no generation needed.
+- Ledger segment is 100% real screen capture of the Ledger calculator page — no generation
+  needed. Use the description footer from `docs/DESCRIPTION-TEMPLATE.md` (calculator deep
+  link + Wealth Garden App Store link).
 - Attribute soft claims in VO exactly as scripted ("friends estimated…") — do not harden them.
 - The $300/mo @ 8% model is illustrative (verified: FV of $300/mo at 8%/yr ≈ $55k @10y,
   $447k @30y, $1.58M @45y, $7.98M @65y). Keep the words "run his profile as a model."

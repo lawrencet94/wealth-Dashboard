@@ -183,8 +183,9 @@ quiet files next to the thick WALKER file. Slow push-in.]**
 
 ## THE LEDGER (9:00–10:30)
 
-**[VISUAL: aesthetic shift — into the Wealth Dashboard UI (screen capture, navy theme).
-Two lines animate from the same starting point: STAYED IN vs. STEPPED OUT.]**
+**[VISUAL: aesthetic shift — into the Ledger calculator page (screen capture, navy theme).
+The Gap & Clock growth line animates; a second dimmer line — STEPPED OUT — is added as a
+motion-graphics overlay in edit, diverging below the captured STAYED IN line.]**
 **[MUSIC: pulse lifts slightly — resolution, not hype.]**
 
 > **VO:** Now — The Ledger. Your numbers, not hers.
@@ -197,9 +198,11 @@ Two lines animate from the same starting point: STAYED IN vs. STEPPED OUT.]**
 > missing just the first stretch of each recovery. Watch the gap between the lines.
 > The deposits are identical. The behavior is the entire difference.
 >
-> The free Wealth Dashboard — link below — lets you run both lines with your own
+> The free Ledger calculators — link below — let you run the growth line with your own
 > numbers, your own start age, your own monthly amount. Set the standing order once,
-> and let the secretary's clock do what it does.
+> and let the secretary's clock do what it does. And to watch it actually happen —
+> your real net worth, tracked across every account, with projections tailored to
+> you — our Wealth Garden app is on the App Store, also linked below.
 >
 > None of this is financial advice — it's arithmetic, and one quiet woman's
 > seventy-year paper trail. Every source is in the description.
@@ -211,7 +214,7 @@ Two lines animate from the same starting point: STAYED IN vs. STEPPED OUT.]**
 > The Archivist, closing file zero-zero-four. Every fortune leaves a paper trail.
 
 **[VISUAL: the two lines freeze; cut to black; lamp clicks off. End card: subscribe +
-Episode 5 thumbnail + dashboard QR/link.]**
+Episode 5 thumbnail + Ledger calculator QR/link + Wealth Garden App Store badge.]**
 
 ---
 
@@ -219,7 +222,7 @@ Episode 5 thumbnail + dashboard QR/link.]**
 
 1. **The Cold Open** (0:00–0:33, vertical crop) — post 2 days before the episode.
 2. **The Copy Trade** (Exhibit A twin-ledgers beat + "humility to copy" line) — day of release.
-3. **Stayed In vs. Stepped Out** (dashboard two-line animation) — 3 days after, CTA to full video.
+3. **Stayed In vs. Stepped Out** (calculator two-line animation) — 3 days after, CTA to full video.
 
 ## Production notes
 

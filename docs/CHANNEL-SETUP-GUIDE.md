@@ -55,10 +55,17 @@ Register the same handle on Instagram / TikTok / X the same day.
 
 **Description:**
 
-> Every fortune leaves a paper trail. Money Stories opens the file on real
-> financial lives — quiet millionaires, spectacular collapses, and your own
-> paycheck — then shows you how to run the same numbers on yourself.
-> New files every Saturday. Education and entertainment, not financial advice.
+> Personal finance, taught through true stories.
+>
+> Money Stories opens the file on real financial lives — quiet millionaires,
+> spectacular collapses, and everyday paychecks — and turns every story into a
+> practical lesson: saving, investing, compounding, and the money habits that
+> quietly build wealth. Each episode ends with The Ledger, where you run the
+> same numbers on your own life.
+>
+> Every fortune leaves a paper trail. New files every Saturday.
+>
+> Education and entertainment, not financial advice.
 
 **Links (in order):**
 1. The Ledger calculators — https://lawrencet94.github.io/wealth-Dashboard/calculator.html

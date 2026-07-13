@@ -39,6 +39,18 @@ Register the same handle on Instagram / TikTok / X the same day.
 | Banner | 2048×1152 (safe area 1235×338) | "MONEY STORIES — Every fortune leaves a paper trail." + "New files Saturdays" |
 | Watermark | 150×150 | Monogram, display: entire video |
 
+**Generated assets (Higgsfield, July 2026)** — download promptly; CDN links can expire:
+
+- **Avatar** (1024×1024, gold lamp-and-ledger emblem on navy):
+  https://d8j0ntlcm91z4.cloudfront.net/user_3DJPPcROLSgYWhAZXHUp59j2wui/hf_20260713_183033_aed2e993-81c3-4f40-87b1-0d74a48e3782.png
+  — upload as-is for the avatar; also downscale a copy to 150×150 for the watermark.
+- **Banner** (3856×2160 upscale, archive room + title text):
+  https://d8j0ntlcm91z4.cloudfront.net/user_3DJPPcROLSgYWhAZXHUp59j2wui/hf_20260713_183215_d2c13fe0-6735-4194-918b-320715963e0d.png
+  — **before uploading, zoom in and proof the AI-rendered text** ("MONEY STORIES" /
+  "Every fortune leaves a paper trail."); if lettering is imperfect, erase it and re-set
+  the type in Canva with DM Serif Display over the same artwork.
+- After download, commit the finals to `branding/` in this repo as the canonical copies.
+
 ## 4. About & links
 
 **Description:**

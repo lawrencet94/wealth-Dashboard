@@ -249,8 +249,10 @@ reaches in and rests on them.]**
 
 ## OUTRO — "Your Numbers" (9:15–10:30)
 
-**[VISUAL: aesthetic shift — the animation swooshes into the real Ledger calculator page
-(screen capture, navy theme). The compounding chart animates live as numbers are spoken.]**
+**[VISUAL: aesthetic shift — the animation swooshes into a stylized flat-vector rendition
+of the Ledger calculator interface (navy theme, mint accents; generated, not screen capture).
+The compounding chart draws itself as numbers are spoken; figures added as text overlays
+in the edit so they stay accurate.]**
 **[MUSIC: lifts — resolution, not hype.]**
 
 > **VO:** So let's stop talking about his numbers and run yours.
@@ -293,8 +295,10 @@ subscribe + EP 2 thumbnail + Ledger QR/link + Wealth Garden badge with Penny.]**
   bunny, round gold glasses, cream suit, mint-green shirt/tie and cuffs, blush cheeks.
   Reuse the app's reference art directly. Penny is the guide/reactor and never speaks —
   the VO carries all words. Penny never portrays Ronald Read.
-- Ledger segment stays 100% real screen capture of the Ledger calculator page. Use the
-  description footer from `docs/DESCRIPTION-TEMPLATE.md`.
+- Ledger segment is a generated stylized rendition of the calculator UI (fully faceless
+  pipeline — no screen capture); exact figures are burned in as text overlays in the edit
+  so the arithmetic on screen stays correct. Use the description footer from
+  `docs/DESCRIPTION-TEMPLATE.md`.
 - Attribute soft claims exactly as scripted ("friends estimated…") — do not harden them.
 - The $300/mo @ 8% model is illustrative (verified: ≈$55k @10y, $447k @30y, $1.58M @45y,
   $7.98M @65y). Keep the on-air hedge "a rough model / simplified model."

@@ -2,8 +2,12 @@
 
 Companion to `ep01-the-8-million-dollar-janitor-kurzgesagt-style.md`.
 Every shot below is a self-contained prompt for Seedance 2.0 (text/image-to-video).
-Generate at **16:9, 1080p**; clip lengths assume 5–10s generations extended/looped in the edit.
-VO (ElevenLabs) and music are laid over the assembled timeline — no clip needs dialogue.
+Generate at **16:9** (720p fast for drafts, 1080p std for finals); Seedance supports 4–15s
+clips, extended/looped in the edit. **Fully faceless pipeline:** the Ledger segment is now
+generated too (shots 18b/18c) — no screen capture, no on-camera anything. VO is generated
+in Higgsfield (seed_audio preset voice; ElevenLabs remains an option later) and laid over
+the assembled timeline via the explainer assembler — no clip needs dialogue
+(`generate_audio: false` on every Seedance job).
 
 ## Global style block (prepend to EVERY prompt)
 
@@ -46,7 +50,9 @@ VO (ElevenLabs) and music are laid over the assembled timeline — no clip needs
 | 15 | Slot machine | 6s | A retro slot machine with a small character glued patiently to the chair in time-lapse as day/night cycles flash; finally the machine erupts in a gentle fountain of gold coins. |
 | 16 | Diner quiet | 8s | Melancholy mood: THE JANITOR alone in a warm diner booth with coffee and a muffin; through the window a giant soft golden curve towers over the town skyline, glowing; he doesn't look at it; PROFESSOR PENNY sits in the next booth, glasses off, quiet. Slow push-in. |
 | 17 | Two levers | 7s | Two big brass levers labeled-ready (leave clean), one marked area for GAP and one for CLOCK; PROFESSOR PENNY presents them like a game-show host, then steps aside; a first-person hand reaches in and rests on both. |
-| 18 | Swoosh to calculator | 4s | The animated world swooshes and dissolves into clean UI particles flying toward camera, transitioning to a screen-capture insert point. (Ledger calculator segment itself is REAL screen capture — do not generate.) |
+| 18 | Swoosh to calculator | 4s | The animated world swooshes and dissolves into clean UI particles flying toward camera, reassembling into a stylized calculator interface. |
+| 18b | Ledger calculator UI | 10s | A stylized flat-vector personal-finance calculator interface on a deep navy screen: a clean input panel on the left with sliders and toggle chips (leave all fields blank for text overlay), and on the right a large compounding-growth chart that draws itself left to right — flat for most of its length, then curving steeply upward, glowing gold at the tip; numbers area left clean for overlays; subtle grid lines, soft mint-green accents, premium fintech app aesthetic, smooth animation, no readable text. |
+| 18c | Two levers on UI | 8s | Same stylized navy fintech interface: two large friendly sliders, one sliding right as the chart behind grows taller, the other sliding left as the curve's takeoff point moves earlier and the gold glow intensifies; PROFESSOR PENNY hops across the bottom of the interface pointing up at the chart. Leave slider labels blank for GAP/CLOCK overlays. |
 | 19 | End card | 8s | The golden curve freezes at its peak; THE JANITOR tips his cap and walks off the edge of the chart line like a road; PROFESSOR PENNY waves goodbye, then hops over to stand proudly beside a blank app-badge rectangle. Leave right third clear for subscribe/EP2/badge overlays. |
 
 ## Assembly notes

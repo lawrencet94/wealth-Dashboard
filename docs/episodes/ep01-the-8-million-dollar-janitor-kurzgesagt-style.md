@@ -6,8 +6,11 @@
 **Narrator:** warm, curious, lightly amused explainer voice (present tense, second person —
 NOT the Archivist; this rework retires the noir narrator for this format)
 **Visual system:** flat vector animation, bold saturated colors on deep navy (#0a0f1e keeps the
-brand), simple geometric characters, one recurring mascot (a small bird in a janitor's cap —
-style-inspired by Kurzgesagt, not a copy of their birds), big readable numbers, scale zooms
+brand), simple geometric characters, big readable numbers, scale zooms.
+**Recurring mascot:** **Professor Penny** — the Wealth Garden bunny professor (lop ears, round
+gold glasses, cream suit, mint-green shirt/tie and cuffs, blush cheeks). Penny is the on-screen
+GUIDE: she points, demonstrates, reacts, and hands over to the calculator. Ronald Read appears
+as a separate simple flat-vector janitor character — Penny never plays Read.
 
 ### Style source (what we're borrowing from Kurzgesagt and why)
 
@@ -20,14 +23,15 @@ style-inspired by Kurzgesagt, not a copy of their birds), big readable numbers, 
 | Honest hedging ("this is oversimplified") | Model disclaimer said out loud, in-voice |
 | A twist that complicates the neat story | Lehman goes to zero; then the darker twist — he over-saved |
 | Optimistic nihilism ending | You control almost nothing — except the two levers that matter |
-| Playful side-gags in visuals, never in the facts | Bird gags live in VISUAL directions only; figures stay sourced |
+| Playful side-gags in visuals, never in the facts | Penny gags live in VISUAL directions only; figures stay sourced |
 
 ### Packaging
 
 - **Title (primary):** A Janitor Died With $8 Million. Here's the Invisible Machine That Did It.
 - **Title (alts):** Why Your Brain Can't See How Money Grows · The Most Boring Way to Get Rich (It Works Every Time)
-- **Thumbnail:** flat-vector janitor bird with mop, tiny and gray, dwarfed by a giant glowing
-  golden exponential curve rising behind him; hook text: **"HE COULDN'T SEE IT EITHER."**
+- **Thumbnail:** flat-vector janitor character with mop, tiny and gray, dwarfed by a giant
+  glowing golden exponential curve rising behind him; Professor Penny peeks in from the corner,
+  eyes wide behind her glasses; hook text: **"HE COULDN'T SEE IT EITHER."**
 - **Chapters:** 0:00 The Millionaire You Can't See · 0:45 The Janitor · 2:30 The Gap ·
   4:15 The Machine · 6:30 Your Broken Brain · 8:00 The Catch · 9:15 Your Numbers
 - **Description hook:** In 2014 a 92-year-old Vermont janitor left $8 million to a hospital and
@@ -43,7 +47,7 @@ style-inspired by Kurzgesagt, not a copy of their birds), big readable numbers, 
 ## COLD OPEN — "The Millionaire You Can't See" (0:00–0:45)
 
 **[VISUAL: A cheerful flat-vector street scene. Dozens of simple characters walk past.
-The camera picks out one: a small gray bird-man in a threadbare coat held together with
+The camera picks out one: a small gray man in a threadbare coat held together with
 safety pins, nursing a coffee. A passerby quietly slips a coin to the barista for him.]**
 **[MUSIC: bright, curious synth pulse — wonder, not noir.]**
 
@@ -60,14 +64,15 @@ safety pins, nursing a coffee. A passerby quietly slips a coin to the barista fo
 > you. In one direction… or the other.
 
 **[VISUAL: the coffee cup morphs into the series logo: MONEY STORIES — EP 001.
-The exponential curve sweeps through the title like a comet tail.]**
+The exponential curve sweeps through the title like a comet tail. Professor Penny hops in,
+straightens her glasses, and taps the title with a pointer — our guide for the episode.]**
 
 ---
 
 ## PART 1 — "The Janitor" (0:45–2:30)
 
 **[VISUAL: zoom into a tiny dot on a map of Vermont — Brattleboro. A farm, a dirt road,
-a small bird-boy walking four miles to school, seasons flicking past like frames.]**
+a small boy walking four miles to school, seasons flicking past like frames.]**
 
 > **VO:** Meet Ronald Read. Born 1921 on a farm outside Brattleboro, Vermont. His family
 > had almost nothing. He walked or hitchhiked about four miles to school and became the
@@ -103,7 +108,8 @@ door, down the street. The number 8,000,000 assembles itself from tiny coins.]**
 ## PART 2 — "The Gap" (2:30–4:15)
 
 **[VISUAL: a bathtub. Water pours in from a tap labeled INCOME; drains out a hole labeled
-SPENDING. The water level barely moves. A tiny janitor bird watches, mop in hand.]**
+SPENDING. The water level barely moves. Professor Penny stands beside the tub with a
+clipboard, taking notes; her ears droop as the level refuses to rise.]**
 
 > **VO:** Part one of the machine: the gap.
 >
@@ -117,7 +123,8 @@ SPENDING. The water level barely moves. A tiny janitor bird watches, mop in hand
 
 **[VISUAL: side-by-side tubs — a golden tub with a firehose tap AND a giant open drain
 (level: zero, water spraying everywhere, tiny sports car floating past), next to Read's
-rusty tub with a dripping tap and a sealed drain, slowly, steadily filling.]**
+rusty tub with a dripping tap and a sealed drain, slowly, steadily filling. Penny stamps
+the rusty tub with a green tick.]**
 
 > **VO:** This is the part your eyes get wrong. A big tap with a big drain holds nothing.
 > A small tap with a sealed drain fills up — slowly, quietly, invisibly. Most people, when
@@ -149,7 +156,8 @@ American Express, railroads, utilities.]**
 
 **[VISUAL: a single share drawn as a friendly cell. It pings out a coin. The coin is
 swallowed back in — and the cell divides into two cells. Then four. Then eight. Time-lapse:
-the screen slowly fills with softly glowing cells, like a petri dish becoming a galaxy.]**
+the screen slowly fills with softly glowing cells, like a petri dish becoming a galaxy.
+Professor Penny watches through a comically oversized magnifying glass.]**
 
 > **VO:** And here's the trick that makes it a machine and not a piggy bank: every dividend
 > those companies mailed him went straight back in — buying more shares, which paid more
@@ -177,7 +185,8 @@ The dish barely notices. 94 others keep glowing and dividing.]**
 ## PART 4 — "Your Broken Brain" (6:30–8:00)
 
 **[VISUAL: a cute cartoon brain sitting at a desk, confidently drawing a straight line
-on a graph. The real curve — flat, flat, flat, then vertical — sneaks up behind it.]**
+on a graph. The real curve — flat, flat, flat, then vertical — sneaks up behind it.
+Penny tries to tap the brain on the shoulder; it doesn't notice.]**
 
 > **VO:** So why does this feel like a magic trick? Why did an entire town — smart, normal
 > people — stare at this man for decades and see nothing?
@@ -214,8 +223,9 @@ $55k… $450k… $1.6M… then the axis has to zoom out twice to fit $8M.]**
 
 ## PART 5 — "The Catch" (8:00–9:15)
 
-**[VISUAL: mood softens. The janitor bird sits alone in a diner with his coffee and muffin.
-Out the window, the giant golden curve towers over the town — and he isn't looking at it.]**
+**[VISUAL: mood softens. The janitor sits alone in a diner with his coffee and muffin.
+Out the window, the giant golden curve towers over the town — and he isn't looking at it.
+Penny sits quietly in the next booth, glasses off for once.]**
 
 > **VO:** Now, an honest story includes the catch. Ronald Read wore safety pins in his coat
 > while eight million dollars sat in a vault. He may have run the gap *too* wide. Because
@@ -231,8 +241,9 @@ Out the window, the giant golden curve towers over the town — and he isn't loo
 > because it does nothing today — and everything later. The best day to start was years ago.
 > The second-best day is annoyingly, boringly, today.
 
-**[VISUAL: the two levers appear as actual levers: GAP and CLOCK. A hand — yours,
-first-person view — rests on them.]**
+**[VISUAL: the two levers appear as actual levers: GAP and CLOCK. Professor Penny presents
+them like a game-show host — then steps aside as a hand (yours, first-person view)
+reaches in and rests on them.]**
 
 ---
 
@@ -261,9 +272,10 @@ first-person view — rests on them.]**
 >
 > Because every fortune leaves a paper trail.
 
-**[VISUAL: the calculator curve freezes at $8,000,000; the janitor bird tips his cap and
-walks off the edge of the chart. End card: subscribe + EP 2 thumbnail + Ledger QR/link +
-Wealth Garden App Store badge.]**
+**[VISUAL: the calculator curve freezes at $8,000,000; the janitor tips his cap and walks
+off the edge of the chart. Professor Penny waves goodbye and hops over to stand beside the
+Wealth Garden App Store badge — she IS the app mascot, so the handoff is seamless. End card:
+subscribe + EP 2 thumbnail + Ledger QR/link + Wealth Garden badge with Penny.]**
 
 ---
 
@@ -276,8 +288,11 @@ Wealth Garden App Store badge.]**
 ## Production notes
 
 - ~22 animated scenes in flat-vector style + reusable assets (bathtub rig, petri-dish rig,
-  ladder chart, janitor-bird mascot). Mascot must be an original design — inspired by, not
-  imitating, Kurzgesagt's birds.
+  ladder chart, Professor Penny rig, janitor character).
+- **Professor Penny must stay on-model with the Wealth Garden app mascot:** white lop-eared
+  bunny, round gold glasses, cream suit, mint-green shirt/tie and cuffs, blush cheeks.
+  Reuse the app's reference art directly. Penny is the guide/reactor and never speaks —
+  the VO carries all words. Penny never portrays Ronald Read.
 - Ledger segment stays 100% real screen capture of the Ledger calculator page. Use the
   description footer from `docs/DESCRIPTION-TEMPLATE.md`.
 - Attribute soft claims exactly as scripted ("friends estimated…") — do not harden them.

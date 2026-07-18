@@ -1,7 +1,13 @@
-# EP01 Kurzgesagt-Style — 5-Minute Draft: Production Log (2026-07-16)
+# EP01 Kurzgesagt-Style — 5-Minute Draft: Production Log (2026-07-16, v2 2026-07-18)
 
-**Final draft:** Higgsfield job `07ebef91-f48f-4e6f-b238-4de89ba1436d` (explainer_video, 28 blocks, 1280×720, patrick subtitles)
-[Download MP4](https://d8j0ntlcm91z4.cloudfront.net/user_3DJPPcROLSgYWhAZXHUp59j2wui/hf_20260716_215728_07ebef91-f48f-4e6f-b238-4de89ba1436d.mp4)
+**FINAL CUT (v2, post-review retakes):** job `af79a9d9-4bde-43d2-b6de-e672e44da1c7`
+[Download v2 MP4](https://d8j0ntlcm91z4.cloudfront.net/user_3DJPPcROLSgYWhAZXHUp59j2wui/hf_20260718_131235_af79a9d9-4bde-43d2-b6de-e672e44da1c7.mp4)
+v2 changes: levers clip retake `fc8a9165` (text-free, single curve); calculator clip retake
+`e2213506` (locally rendered Ledger UI frame `calc_ui.png`, media `bcf931fd`, as start_image);
+B3 VO re-recorded without "JCPenney" (`bd1ce99f`, 9.2s) to fix the caption typo.
+
+**v1 draft:** Higgsfield job `07ebef91-f48f-4e6f-b238-4de89ba1436d` (explainer_video, 28 blocks, 1280×720, patrick subtitles)
+[Download v1 MP4](https://d8j0ntlcm91z4.cloudfront.net/user_3DJPPcROLSgYWhAZXHUp59j2wui/hf_20260716_215728_07ebef91-f48f-4e6f-b238-4de89ba1436d.mp4)
 
 **Voice:** seed_audio preset **Alistair** (`d9d5c263-f84e-4752-97b5-3750fcc6fd2f`) — swap to ElevenLabs later if preferred.
 **Penny reference (reuse on all Penny shots):** image job `cb489660-225e-46b5-84fd-28ff297082af`
@@ -62,9 +68,12 @@
 ## Costs
 
 - Pilot (3 clips, VO, penny refs, assembly): ~170 credits
-- Draft (11 clips, 30 VO takes, subtitles, assembly): ~379 credits
-- Remaining balance: **85.95 credits**
+- Draft v1 (11 clips, 30 VO takes, subtitles, assembly): ~379 credits
+- Review retakes + v2 reassembly (2 clips, 2 VO takes, subs): ~73 credits
+- Remaining balance: **12.85 credits** (enough for VO retakes only — top up before more video)
 - Full 10:30 version still needs a top-up (~1,200+ credits at std quality)
+- Still outstanding from review: two-tubs semantic retake (gold tub should be empty);
+  music bed (external); optional shorter re-reads of B1/B15 if they sound rushed
 
 ## Retake recipe
 
